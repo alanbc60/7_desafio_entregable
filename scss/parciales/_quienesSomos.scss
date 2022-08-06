@@ -1,0 +1,109 @@
+/* ================= Pagina Quienes somos ==================*/
+
+.contenedor_principal_quienes-somos {
+    width: $width-estandar;
+    height: $height-estandar;
+    display: grid;
+    margin-top: 80px;
+    gap: 10px;
+    background-color: $colorPrincipal;
+    /* Indicar cuantas columnas tendra */
+    grid-template-columns: repeat(3, 1fr);
+    /* Indicar cuantas filas tendra */
+    grid-template-rows: auto auto auto 100px auto;
+
+    /* acomodar el grid */
+    grid-template-areas:
+        "titulo_QuienesSomos titulo_QuienesSomos titulo_QuienesSomos"
+        /*fila 1*/
+        "texto_conocenos texto_conocenos titulo_amigoMes"
+        /*fila 2*/
+        "texto_conocenos texto_conocenos imagen_amigoEspecial"
+        /*fila 3*/
+        "titulo_amigos titulo_amigos titulo_amigos "
+        /*fila 4*/
+        "contenedor_marcas contenedor_marcas contenedor_marcas";
+
+    .contenedor_titulo_quienesSomos {
+        grid-area: titulo_QuienesSomos;
+        background-color: paleturquoise;
+
+    }
+
+    /* Contenedor de titulo y parrafo de la empresa */
+    .conocenos_textos {
+        grid-area: texto_conocenos;
+        margin-left: 20px;
+        font-size: 20px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .contenedor_titulo_amigoMes {
+        grid-area: titulo_amigoMes;
+        font-style: italic;
+        animation: titulo_amigoMes 14s infinite;
+    }
+
+    .contenedor_amigoEspecial_instagram {
+        grid-area: imagen_amigoEspecial;
+        width: 300px;
+        height: 420px;
+        /* background-color: blue; */
+        margin-left: 20px;
+    }
+
+    .titulo_amigos {
+        grid-area: titulo_amigos;
+        /* background-color: #0095ff; */
+        color: #0095ff;
+        text-align: center;
+        font-size: 190px;
+        padding-bottom: 120px;
+
+        h2 {
+            font-size: 90px;
+            font-family: cursive;
+
+        }
+    }
+
+    /* Contenedor de cards de marcas */
+    .contenedor-marcas {
+        grid-area: contenedor_marcas;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .card_instagram_marca {
+            background-color: blue;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 22px;
+            margin-top: 13px;
+        }
+
+        .card_instagram_marca:hover {
+            transform: scale(1.05);
+        }
+
+    }
+
+}
+
+
+@keyframes titulo_amigoMes {
+    0% {
+        transform: skewX(20deg);
+    }
+
+    100% {
+        transform: skewX(-20deg);
+    }
+}
+
+.contenedor_amigoEspecial_instagram:hover {
+    border: 3px solid silver;
+    box-shadow: 4px 4px 13px rgba(255, 44, 44, 0.8);
+    transform: scale(1.1);
+}

@@ -1,0 +1,171 @@
+/* ============= pagina descuentos =========== */
+.contenedor_principal-descuentos-fechas {
+    width:  $width-estandar;
+    height: $height-estandar;
+    display: grid;
+    margin-top: 80px;
+    gap: 10px;
+    background-color: white;
+    /* Indicar cuantas columnas tendra */
+    grid-template-columns: repeat(3, 1fr);
+    /* Indicar cuantas filas tendra */
+    grid-template-rows: 100px 400px auto 100px auto;
+
+    /* acomodar el grid */
+    grid-template-areas:
+        "titulo_descuentos titulo_descuentos titulo_descuentos"
+        "card_img_descuento card_img_descuento texto_descuentos"
+        "contenedor_descuentos contenedor_descuentos contenedor_descuentos"
+        "titulo_fechas titulo_fechas titulo_fechas"
+        "contenedor_fechas contenedor_fechas contenedor_fechas";
+}
+
+/* Contenedor del titulo principal de descuentos */
+.titulo_descuentos {
+    grid-area: titulo_descuentos;
+    color: white;
+    text-align: center;
+    background-color: red;
+    font-size: 100%;
+}
+
+.card_imagen_descuento{
+    grid-area: card_img_descuento;
+}
+
+
+.card_imagen_descuento img {
+    width:  $width-estandar;
+    height: 340px;
+    object-fit: cover;
+
+}
+
+.informacion_descuentos_fechas {
+    padding: 10px;
+    grid-area: texto_descuentos;
+    font-size: 20px;
+}
+
+/* contenedor y card de la seccion descuentos */
+.contenedor_cards_descuentos {
+    grid-area: contenedor_descuentos;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: chartreuse; */
+    margin-top: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.titulo_fechas {
+    grid-area: titulo_fechas;
+    color: white;
+    text-align: center;
+    background-color: blue;
+    font-size: 100%;
+}
+
+.contenedor_cards_fechas {
+    grid-area: contenedor_fechas;
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: violet; */
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+/* Texto tiulo descuentos */
+.titulo_descuentos h2 {
+    font-size: 70px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.informacion_descuentos_fechas p {
+    font-style: italic;
+}
+
+/* personalizacion del contenedor card descuentos */
+
+.card_descuento {
+    width: 400px;
+    height: 220px;
+    background-color: $colorPrincipal;
+    margin-left: 12px;
+    margin-top: 23px;
+    border-radius: 20px;
+
+}
+
+.card_fecha {
+    width: 400px;
+    height: 220px;
+    background-color: $colorPrincipal;
+    margin-left: 12px;
+    margin-top: 23px;
+    animation: card_fecha 9s infinite;
+    transform: skew(20deg);
+    animation-direction: alternate;
+    opacity: .7;
+}
+@keyframes card_fecha {
+    0% {
+      transform: skewX(20deg);
+    }
+    100% {
+      transform: skewX(-20deg);
+    }
+  }
+
+/* como esta al principio */
+.card_descuento .cobertura_img_card {
+    /* background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(150px); */
+    background-color: $colorPrincipal;
+    height: 220px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+
+    border: 5px solid red;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.card_descuento:hover .cobertura_img_card {
+    display: none;
+}
+
+/* Texto del card_descuento */
+.contenedor_cards_descuentos .card_descuento .texto_card_descuento {
+    width: 335px;
+    height: 200px;
+    margin-left: 20px;
+    justify-content: center;
+    /* background-color: yellow; */
+    display: none;
+}
+
+.card_descuento:hover .texto_card_descuento {
+    /* position: absolute; */
+    display: block;
+}
+
+.texto_card_descuento h3 {
+    color: red;
+    margin-bottom: 5px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Titulo y fondo de la seccion fechas importantes */
+
+.titulo_fechas h2 {
+    font-size: 70px;
+    font-style: oblique;
+    font-weight: bold;
+}

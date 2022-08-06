@@ -1,0 +1,211 @@
+/* ================ Página inicio: imagen principal y texto ================ */
+
+/* contenedor principal */
+
+.contenedor_principal {
+    width:  $width-estandar;
+    height: $height-estandar;
+    display: grid;
+    gap: 40px;
+    background-color: azure;
+    /* Indicar cuantas columnas tendra */
+    grid-template-columns: repeat(3, 1fr);
+    /* Indicar cuantas filas tendra */
+    grid-template-rows: 400px 100px 900px;
+
+    /* acomodar el grid */
+    grid-template-areas:
+        "principal_imagen principal_texto principal_texto"
+        /*fila 1*/
+        "titulo_novedades titulo_novedades titulo_novedades"
+        /*fila 2*/
+        "contenedor_novedades contenedor_novedades contenedor_novedades"
+        /*fila 3*/
+}
+
+/* contenedor de la imagen */
+.contenedor_principal-imagen {
+    margin-top: 90px;
+    grid-area: principal_imagen;
+    background-color: steelblue;
+    img {
+        width:  $width-estandar;
+        height: 340px;
+        min-height: 350px;
+        object-fit: $acoplamiento-imagen;
+        transition-delay: 1s;
+        transition: width 3s;
+    }
+    img:hover {
+        width: 700px;
+    }
+}
+
+
+/* contenedor donde esta el texto principal y el boton */
+.contenedor_principal-texto {
+    margin-top: 90px;
+    grid-area: principal_texto;
+    background-color: azure;
+    h1{
+        background-image: linear-gradient(90deg, #000066 0%, #ff0066 100%);
+        color: transparent;
+        -webkit-background-clip: text;
+        animation: index_texto_animado 3s infinite;
+    }
+}
+
+@keyframes index_texto_animado {
+    50% {
+        background-image: linear-gradient(90deg, red 0%, #000066 100%);
+    }
+}
+
+.contenido_principal-texto {
+    font-size: 18px;
+    height: auto;
+    width: 92%;
+    margin-right: 230px;
+    margin-left: 20px;
+}
+
+.contenedor_boton_checar {
+    margin-left: 20px;
+}
+
+/* boton checar(se usa en la página carrito igual) */
+.btn_checar {
+    height: 40px;
+    display: inline-block;
+    text-decoration: none;
+    background: $colorSecundario;
+    padding: 9px 40px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 8px 0 #EC2D53;
+    transition: all 0.2s;
+    animation: btn_checar infinite;
+    animation-duration: 20s;
+}
+/* animacion del boton checar */
+@keyframes btn_checar {
+    from {
+        background-color: red;
+        box-shadow: 0 8px 0 red;
+    }
+    to {
+        background-color: #0095ff;
+        box-shadow: 0 8px 0 #0095ff;
+    }
+}
+.btn_checar:hover {
+    color: #fff;
+}
+
+.btn_checar:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 red;
+}
+
+/* Fin de la personalización del texto principal con imagen */
+
+
+/* ================ Novedades ================ */
+
+/* Personalización del contenedor con texto animado(pensado para la sección inicio y Quienes somos) */
+.titulo_novedades {
+    grid-area: titulo_novedades;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    display: flex;
+    /* Texto antes de la animación */
+    h2 {
+        position: static;
+        font-size: 44px;
+        color: white;
+        -webkit-text-stroke: 5px white;
+        text-transform: uppercase;
+        /*mayusculas*/
+    }
+
+}
+
+
+
+/* contenedor principal novedades */
+.contenedor_novedades {
+    grid-area: contenedor_novedades;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* card del contenedor novedades */
+.card_novedades {
+    width: 295px;
+    height: 400px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+    /* box-shadow: 5px 5px 10px rgb(210, 209, 209); */
+    box-shadow: 5px 5px 10px rgb(194, 193, 193);
+
+}
+
+.card_novedades_imagen {
+    width: 280px;
+    height: 310px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding-top: 13px;
+    margin-left: 9px;
+    img {
+        width: 276px;
+        height: 310px;
+        transition: all 2s ease-in-out;
+    }
+    img:hover {
+        transform: scale(1.2, 1.2);
+        cursor: pointer;
+    }
+}
+
+/* contenedor de boton y texto del card */
+.card-texto_boton {
+    display: flex;
+    width: 276px;
+    height: 65px;
+    margin-top: 10px;
+    background-color: white;
+    border-top: 50px;
+    margin-left: 9px;
+}
+
+/* Texto de cada card */
+.card_texto h2 {
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+/* boton carrito de compras */
+.card_boton {
+    width: 35px;
+    height: 35px;
+    margin-left: 138px;
+    margin-top: 10px;
+    text-decoration: none;
+    list-style: none;
+    background-color: $colorPrincipal;
+    a{
+        background-color: white;
+        border-color: aliceblue;
+    }
+    
+}
+
+.boton_novedades{
+    color: $colorSecundario;
+    background-color: #fff;
+}

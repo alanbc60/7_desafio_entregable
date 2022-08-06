@@ -1,0 +1,170 @@
+/* ==================pagina productos-hombre-mujer   ========== */
+
+
+.contenedor_principal-filtroCategorias-listaProductos {
+    width: $width-estandar;
+    height: $height-estandar;
+    display: grid;
+    margin-top: 100px;
+    gap: 10px;
+    background-color: white;
+    /* Indicar cuantas columnas tendra */
+    grid-template-columns: repeat(3, auto);
+    /* Indicar cuantas filas tendra */
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+        "titulo_categoria titulo_categoria titulo_categoria"
+        /*fila 1*/
+        "filtro_categorias contenedor_cards_productos contenedor_cards_productos";
+}
+
+/* contenedores hijos */
+.titulo_categoria {
+    grid-area: titulo_categoria;
+    width: 500px;
+    color: white;
+    min-width: 320px;
+    text-align: center;
+    margin-top: 31px;
+    background-color: #0095ff;
+    font-size: 100%;
+}
+
+.contenedor_filtroCategorias {
+    grid-area: filtro_categorias;
+    width: 350px;
+    height: 400px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-color: #0095ff;
+
+    border-radius: 15px;
+    padding-left: 20px;
+}
+
+.contenedor_listaProductos {
+    grid-area: contenedor_cards_productos;
+    display: flex;
+    background-color: #0095ff;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+    /* margin-left: 1px; */
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+
+
+/* Fin de  contenedores hijos */
+
+
+/* personalizacion del contenedor titulo_categoria */
+.titulo_categoria h2 {
+    font-size: 70px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+
+.filtro_genero {
+    width: 150px;
+    height: 100px;
+    /* background-color: blue; */
+    margin-bottom: 10px;
+    color: #0095ff;
+
+}
+
+.filtro_categoria {
+    width: 250px;
+    height: 150px;
+    display: inline;
+    flex-wrap: wrap;
+    /* background-color: brown; */
+    color: #0095ff;
+}
+
+.filtro_precio {
+    width: 150px;
+    height: 100px;
+    /* background-color: blue; */
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 40px;
+    color: #0095ff;
+    display: inline;
+    flex-wrap: wrap;
+}
+
+
+
+
+/* Ocultar el scrollbar de la  lista productos*/
+.contenedor_listaProductos::-webkit-scrollbar {
+    display: none;
+}
+
+.card_producto_hombre {
+    background-color: white;
+    width: 230px;
+    height: 340px;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding-right: 30px;
+    box-shadow: 2px 2px 6px 2px #0095ff;
+    margin-bottom: 23px;
+    border-radius: 12px;
+    transition-delay: 1s;
+    transition: width 3s;
+}
+.card_producto_hombre:hover {
+transform: scale(1.06);
+}
+
+
+/* Auste de tamaño de la imagen de cada card */
+.card_producto_imagen img {
+    padding-top: 10px;
+    width: 215px;
+    height: 270px;
+    object-fit: cover;
+    margin-left: 6px;
+}
+
+
+/* contenedor de boton y texto del card */
+.card_producto-texto_boton {
+    display: flex;
+    flex-wrap: wrap;
+    width: 215px;
+    height: 65px;
+    margin-left: 6px;
+    padding-left: 10px;
+    background-color: #0095ff;
+    /* border-radius: 5px; */
+}
+
+.card_producto-texto h2 {
+    font-size: 20px;
+    font-weight: bold;
+    height: auto;
+    width: 130px;
+    color: #fff;
+}
+
+.card_boton_comprar {
+    display: none;
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.card_producto-texto_boton:hover .card_boton_comprar {
+    display: block;
+}
