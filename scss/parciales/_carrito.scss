@@ -1,16 +1,22 @@
 /* ================ Página carrito ================ */
 
 
+@mixin sizes($width, $height){
+    width: $width;
+    height: $height;
+}
+
+@mixin contenedorGrid($grid,$marginTop,$gap){
+    display: $grid;
+    margin-top: $marginTop;
+    gap: $gap;
+}
+
 /* contenedor principal */
-
-
 .carrito-contenedor_principal {
-    width:  $width-estandar;
-    height: $height-estandar;
-    display: grid;
-    gap: 40px;
-    background-color: azure;
-    margin-top: 80px;
+    @include sizes($width-estandar, $height-estandar);
+    @include contenedorGrid(grid, 80px, 40px);
+    background-color: map-get($map: $paleta-colores, $key: 'segundoColorPrincipal');
     /* Indicar cuantas columnas tendra */
     grid-template-columns: repeat(3, 1fr);
     /* Indicar cuantas filas tendra */
@@ -20,178 +26,119 @@
     grid-template-areas:
         "texto_carrito texto_carrito texto_carrito"
         "contenedor_productos contenedor_productos contenedor_precio_total";
-}
 
+    .carrito-texto_principal {
+        grid-area: texto_carrito;
+        background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
+        color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+        text-align: center;
 
-.carrito-texto_principal {
-    grid-area: texto_carrito;
-    background-color: $colorSecundario;
-    color: $colorPrincipal;
-    text-align: center;
-
-    h1 {
-        font-size: 40px;
-        font-style: oblique;
-        font-weight: bold;
+        h1 {
+            font-size: 40px;
+            font-style: oblique;
+            font-weight: bold;
+        }
     }
-}
 
-.carrito-contenedor_productos{
-    grid-area: contenedor_productos;
-}
-.carrito-contenedor_precios{
-    grid-area: contenedor_precio_total;
-    max-height: 500px;
-}
+    /* personalizacion del contenedor de productos */
+    .carrito-contenedor_productos {
+        grid-area: contenedor_productos;
+
+        /* personalizacion del card producto */
+        .card_producto {
+            @include contenedorGrid(grid, 10px, 10px);
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+            /* Indicar cuantas columnas tendra */
+            grid-template-columns: repeat(3, 1fr);
+            /* Indicar cuantas filas tendra */
+            grid-template-rows: 200px;
+            /* acomodar el grid */
+            grid-template-areas:
+                "contenedor_imagen_producto contenedor_texto_productos contenedor_texto_productos";
 
 
-/* personalizacion del contenedor de productos */
-.card_producto {
-    display: grid;
-    gap: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    background-color: $colorPrincipal;
-    /* Indicar cuantas columnas tendra */
-    grid-template-columns: repeat(3, 1fr);
-    /* Indicar cuantas filas tendra */
-    grid-template-rows: 200px;
-    /* acomodar el grid */
-    grid-template-areas:
-        "contenedor_imagen_producto contenedor_texto_productos contenedor_texto_productos";
-    /*fila 2*/
-}
+            /* imagen del producto */
+            .carrito_imagen_producto {
+                grid-area: contenedor_imagen_producto;
+                background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
 
-/* personalizacion del card producto */
+                img {
+                    @include sizes($width-estandar, $height-estandar);
+                    object-fit: $acoplamiento-imagen;
+                }
+                img:hover {
+                    transform: scale(1.04);
+                }
+                
+            }
+            
+            /* contenedor hijo de card_producto: Texto producto */
+            .texto-producto {
+                grid-area: contenedor_texto_productos;
+                background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+                width:  $width-estandar;
+                .cantidad_producto{
+                    /* Entrada de texto para aumentar las cantidades */
+                    input {
+                        width: 100px;
+                        padding: 5px;
+                        text-align: center;
+                    }
+                    input:hover {
+                        background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
+                        color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+                    }
+                    
+                    /* Boton de eliminar producto en card producto */
+                    .eliminar_producto {
+                        bottom: 20px;
+                        margin-left: 22px;
+                        padding: 10px 25px;
+                        background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
+                        color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+                        cursor: pointer;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        text-align: end;
 
-/* imagen del producto */
-.carrito_imagen_producto {
-    background-color: red;
-    grid-area: contenedor_imagen_producto;
+                    }
+
+                    .eliminar_producto:hover {
+                        background-color: skyblue;
+                        color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+                        font-weight: 600;
+                        border: 1px solid white;
+
+                    }
+                }
+
+            }
+        }
+    }
+    .carrito-contenedor_precios{
+        grid-area: contenedor_precio_total;
+        max-height: 500px;
+        /* personalizacion de componentes del contenedor precio total */
+
+
+        /* Texto del card pagar */
+        .carrito-contenedor_precios p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Boton de card pagar(personalización establecida anteriormente) */
+        .carrito-contenedor_precios a {
+            margin-left: 80px;
+
+        }
+    }
     
-    img {
-        width:  $width-estandar;
-        height: $height-estandar;
-        object-fit: cover;
-    }
-    img:hover {
-        transform: scale(1.04);
-    }
-    
 }
 
-/* contenedor hijo de card_producto: Texto producto */
-.texto-producto {
-    grid-area: contenedor_texto_productos;
-    background-color: $colorPrincipal;
-    width:  $width-estandar;
-
-}
-
-
-/* Boton de eliminar producto en card producto */
-.eliminar_producto {
-    bottom: 20px;
-    margin-left: 22px;
-    padding: 10px 25px;
-    background-color: $colorSecundario;
-    color: $colorPrincipal;
-    cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: end;
-
-}
-
-.eliminar_producto:hover {
-    background-color: skyblue;
-    color: $colorPrincipal;
-    font-weight: 600;
-    border: 1px solid white;
-
-}
-
-/* Entrada de texto para aumentar las cantidades */
-.cantidad_producto input {
-    width: 100px;
-    padding: 5px;
-    text-align: center;
-}
-
-.cantidad_producto input:hover {
-    background-color: red;
-    color: $colorPrincipal;
-}
-
-/* personalizacion de componentes del contenedor precio total */
-
-
-/* Texto del card pagar */
-.carrito-contenedor_precios p {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 20px;
-}
-
-/* Boton de card pagar(personalización establecida anteriormente) */
-.carrito-contenedor_precios a {
-    margin-left: 80px;
-
-}
-
-/* contenedor Descuento */
-
-/* personalizacion princiapl del text field descuentos*/
-.contenedor_input {
-    width: 280px;
-    margin-top: 20px;
-
-    /* personalizacion del contendor (text field) */
-    .text-input {
-        padding: 10px;
-        width:  $width-estandar;
-        height: $height-estandar;
-        border: 3px solid red;
-        background-color: $colorPrincipal;
-        border-radius: 5px;
-        font-size: 18px;
-        outline: none;
-        transition: all .3s;
-        color: red;
-    }
-
-    /* Personalizacion  del contenedor(text-input) cuando cliqueamos el input */
-    .text-input:focus {
-        border: 2px solid red;
-        width:  $width-estandar;
-        height: $height-estandar;
-    }
-
-    /* personalizacion del label Descuento */
-    label {
-        /* left: 0px; */
-        margin-bottom: 10px;
-        transition: all 0.2s;
-        z-index: 1;
-        color: red;
-        font-size: 20px;
-    }
-
-    /* texto placeholder del input */
-    .text-input::placeholder {
-        font-size: 20px;
-        opacity: 1;
-        transition: all .3s;
-    }
-
-
-    /* Texto ingrese un descuento despues hacer de cliquear el input field */
-    .text-input:focus::placeholder {
-        opacity: 0;
-        animation-delay: 0.2s;
-    }
-}
 
 

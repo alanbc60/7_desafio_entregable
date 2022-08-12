@@ -75,7 +75,7 @@ header {
 /* Personalización general de los enlaces(tambien usado en las categorias de productos) */
 .enlace_item {
     display: inline-block;
-    color: $colorTextoSecundario;
+    color: map-get($map: $paleta-colores, $key: 'colorTextoSecundario');
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -83,8 +83,8 @@ header {
 }
 
 .enlace_item:hover {
-    background-color: $colorSecundario;
-    color: $colorTextoPrincipal;
+    background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
+    color: map-get($map: $paleta-colores, $key: 'colorTextoPrincipal');;
 }
 
 /* == Personalización  del contendor de la lista de enlaces  ===*/
@@ -94,7 +94,7 @@ header {
     display: none;
     position: absolute;
     /*se sobrepone sobre la la lista*/
-    background-color: $colorPrincipal;
+    background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
     height: 290px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -102,7 +102,7 @@ header {
     /* Al pasar el cursor en  una categoria*/
     a:hover {
         background-color: white;
-        color: $colorTextoSecundario;
+        color: map-get($map: $paleta-colores, $key: 'colorTextoSecundario');
     }
 }
 

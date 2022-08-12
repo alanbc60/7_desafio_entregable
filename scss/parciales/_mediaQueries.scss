@@ -500,6 +500,7 @@
         gap: 5px;
 
         .carrito-texto_principal {
+            grid-area: texto_carrito;
             height: 70px;
             background-color: red;
             color: white;
@@ -512,69 +513,78 @@
                 font-weight: bold;
             }
         }
-    }
+        .carrito-contenedor_productos {
+            grid-area: contenedor_productos;
+            .card_producto {
+                display: grid;
+                width: 99%;
+                min-width: 310px;
+                overflow-y: hidden;
+                overflow-x: hidden;
+        
+                gap: 10px;
+                margin-top: 10px;
+                background-color: white;
+                /* Indicar cuantas columnas tendra */
+                grid-template-columns: 1fr;
+                /* Indicar cuantas filas tendra */
+                grid-template-rows: auto auto;
+        
+                /* acomodar el grid */
+                grid-template-areas:
+                    "contenedor_imagen_producto"
+                    "contenedor_texto_productos";
+                /*fila 2*/
+                .carrito_imagen_producto {
+                    grid-area: contenedor_imagen_producto;
+                    width: $width-estandar;
+                    min-width: 320px;
+                    background-color: black;
+                    
+                    img {
+                        width: 100%;
+                        min-width: 320px;
+                    }
+                }
+        
+                .texto-producto {
+                    grid-area: contenedor_texto_productos;
+                    width: $width-estandar;
+                    min-width: 320px;
 
-
-
-    /* Pagina carrito */
-
-    .card_producto {
-        display: grid;
-        width: 99%;
-        min-width: 310px;
-        overflow-y: hidden;
-        overflow-x: hidden;
-
-        gap: 10px;
-        margin-top: 10px;
-        background-color: white;
-        /* Indicar cuantas columnas tendra */
-        grid-template-columns: 1fr;
-        /* Indicar cuantas filas tendra */
-        grid-template-rows: auto auto;
-
-        /* acomodar el grid */
-        grid-template-areas:
-            "contenedor_imagen_producto"
-            "contenedor_texto_productos";
-        /*fila 2*/
-        .carrito_imagen_producto {
-            width: $width-estandar;
-            min-width: 320px;
-            background-color: black;
-            
-            img {
-                width: 100%;
-                min-width: 320px;
+                    .cantidad_producto{
+                        .eliminar_producto {
+                            margin-left: 0px;
+                            color: white;
+                            cursor: pointer;
+                            border-radius: 5px;
+                            text-decoration: none;
+                    
+                        }
+                    }
+                }
             }
         }
 
-        .texto-producto {
-            grid-area: contenedor_texto_productos;
-            width: $width-estandar;
-            min-width: 320px;
+
+        /* contenedor principal del card pagar */
+        .carrito-contenedor_precios {
+            width: auto;
+            margin-left: 0px;
+            border: 1px solid red;
+            border-radius: 5px;
+            margin: 10px;
+
         }
-    }
-
-
-    .eliminar_producto {
-        margin-left: 0px;
-        color: white;
-        cursor: pointer;
-        border-radius: 5px;
-        text-decoration: none;
 
     }
 
-    /* contenedor principal del card pagar */
-    .carrito-contenedor_precios {
-        width: auto;
-        margin-left: 0px;
-        border: 1px solid red;
-        border-radius: 5px;
-        margin: 10px;
 
-    }
+
+
+
+
+
 }
 
 

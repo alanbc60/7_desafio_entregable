@@ -93,7 +93,7 @@
 .card_descuento {
     width: 400px;
     height: 220px;
-    background-color: $colorPrincipal;
+    background-color:map-get($map: $paleta-colores, $key: 'colorPrincipal');
     margin-left: 12px;
     margin-top: 23px;
     border-radius: 20px;
@@ -103,7 +103,7 @@
 .card_fecha {
     width: 400px;
     height: 220px;
-    background-color: $colorPrincipal;
+    background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
     margin-left: 12px;
     margin-top: 23px;
     animation: card_fecha 9s infinite;
@@ -124,7 +124,7 @@
 .card_descuento .cobertura_img_card {
     /* background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(150px); */
-    background-color: $colorPrincipal;
+    background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
     height: 220px;
     width: 400px;
     display: flex;

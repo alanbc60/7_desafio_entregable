@@ -1,7 +1,19 @@
-$colorPrincipal: white;
-$colorSecundario: red;
+
+// Variables
 $acoplamiento-imagen: cover;
 $width-estandar: 100%;
 $height-estandar: 100%;
-$colorTextoPrincipal: white;
-$colorTextoSecundario: red;
+
+
+//Mapa 
+
+$paleta-colores: (
+    'colorPrincipal': white,
+    'colorSecundario': red,
+    'segundoColorPrincipal': azure,
+    'colorCard': #ebf5fc,
+    'colorBotonAgregar': #ebeef1,
+    'colorTextoPrincipal': white,
+    'colorTextoSecundario': red
+);
+
