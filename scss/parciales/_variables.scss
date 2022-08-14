@@ -4,16 +4,21 @@ $acoplamiento-imagen: cover;
 $width-estandar: 100%;
 $height-estandar: 100%;
 
+$fontMaxima: 100%;
 
 //Mapa 
 
 $paleta-colores: (
-    'colorPrincipal': white,
+    'colorPrincipal': #ebf5fc,
     'colorSecundario': red,
-    'segundoColorPrincipal': azure,
-    'colorCard': #ebf5fc,
+    'segundoColorPrincipal':#ecf7ff,
+    'colorTerciario':#ecf0f3,
     'colorBotonAgregar': #ebeef1,
+    'colorFondoBlanco': white,
     'colorTextoPrincipal': white,
-    'colorTextoSecundario': red
+    'colorTextoTitulosAzul': #0095ff,
+    'colorTextoSecundario': red,
+    'colorFondoAzul': blue
+    
 );
 

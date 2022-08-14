@@ -135,7 +135,8 @@
     /* contenedor principal novedades */
     .contenedor_novedades {
         grid-area: contenedor_novedades;
-        background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');;
+
+        background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -148,13 +149,29 @@
             margin-left: 20px;
             margin-right: 20px;
             margin-top: 30px;
-            background: map-get($map: $paleta-colores, $key: 'colorCard');
-            box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
-                        inset -5px -5px 5px rgba(255, 255, 255, 0.5),
-                        5px 5px 5px rgba(0, 0, 0, 0.05),
-                        -5px -5px 5px rgba(255, 255, 255, 0.5);
+            background: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+            box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16),
+                       -10px -10px 10px -1px rgba(255, 255, 255, 0.70);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.18);
+
+            .card_novedades_imagen {
+                @include sizes(280px, 310px);
+                border-radius: 3px;
+                overflow: hidden;
+                padding-top: 13px;
+                margin-left: 9px;
+            
+                img {
+                    @include sizes(276px, 310px);
+                    transition: all 2s ease-in-out;
+                }
+            
+                img:hover {
+                    transform: scale(1.2, 1.2);
+                    cursor: pointer;
+                }
+            }
     
             h2 {
                 padding-left: 10px;
@@ -174,25 +191,13 @@
                 padding: 5px 20px;
                 height: 35px;
             }
+            a:hover{
+                color: map-get($map: $paleta-colores, $key: 'colorBotonAgregar');
+                background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
+            }
         }
 
-        .card_novedades_imagen {
-            @include sizes(280px, 310px);
-            border-radius: 3px;
-            overflow: hidden;
-            padding-top: 13px;
-            margin-left: 9px;
-        
-            img {
-                @include sizes(276px, 310px);
-                transition: all 2s ease-in-out;
-            }
-        
-            img:hover {
-                transform: scale(1.2, 1.2);
-                cursor: pointer;
-            }
-        }
+
     }
 
 }

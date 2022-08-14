@@ -1,4 +1,12 @@
 /* Footer */
+
+
+.atributoSeccionFooter{
+    color: map-get($map: $paleta-colores, $key: 'colorTextoPrincipal');
+    margin: 17px;
+    text-align: center;
+}
+
 .contenedor_footer {
     width: auto;
     margin-top: auto;
@@ -15,27 +23,19 @@
         "footer_seccion1_logo footer_seccion2_contacto footer_cliente footer_seccion4_redes";
 
     .footer_seccion1_logo {
-        color: map-get($map: $paleta-colores, $key: 'colorTextoPrincipal');
-        margin: 20px;
-        text-align: center;
+        @extend .atributoSeccionFooter;
     }
 
     .footer_seccion2_contacto {
-        color: map-get($map: $paleta-colores, $key: 'colorTextoPrincipal');
-        margin: 17px;
-        text-align: center;
+        @extend .atributoSeccionFooter;
     }
 
     .footer_cliente {
-        color: map-get($map: $paleta-colores, $key: 'colorTextoPrincipal');
-        margin: 17px;
-        text-align: center;
+        @extend .atributoSeccionFooter;
     }
 
     .footer_seccion4_redes {
-        color: map-get($map: $paleta-colores, $key: 'colorTextoPrincipal');
-        margin: 17px;
-        text-align: center;
+        @extend .atributoSeccionFooter;
 
         a {
             color: white;

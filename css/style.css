@@ -26,8 +26,8 @@ header {
   justify-content: space-between;
   /*Se agrega espacio entre cada elemento secundario de un contenedor flex.*/
   border-bottom: 15px black;
-  background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: #ebf5fc;
+  box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
 }
 
 /* === Personalización de logo === */
@@ -73,7 +73,6 @@ header {
   /*colocar elemento uno a lado de otro hasta que haya espacio */
   gap: 10px;
   /*Espaciado entre botones*/
-  background-color: white;
   margin-right: 5px;
 }
 
@@ -105,7 +104,7 @@ header {
   display: none;
   position: absolute;
   /*se sobrepone sobre la la lista*/
-  background-color: white;
+  background-color: #ebf5fc;
   height: 290px;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -188,6 +187,12 @@ header {
 
 /* Fin de personalización de categorias */
 /* Footer */
+.atributoSeccionFooter, .contenedor_footer .footer_seccion1_logo, .contenedor_footer .footer_seccion2_contacto, .contenedor_footer .footer_cliente, .contenedor_footer .footer_seccion4_redes {
+  color: white;
+  margin: 17px;
+  text-align: center;
+}
+
 .contenedor_footer {
   width: auto;
   margin-top: auto;
@@ -201,30 +206,6 @@ header {
   /* Indicar cuantas filas tendra */
   grid-template-rows: 230px;
   grid-template-areas: "footer_seccion1_logo footer_seccion2_contacto footer_cliente footer_seccion4_redes";
-}
-
-.contenedor_footer .footer_seccion1_logo {
-  color: white;
-  margin: 20px;
-  text-align: center;
-}
-
-.contenedor_footer .footer_seccion2_contacto {
-  color: white;
-  margin: 17px;
-  text-align: center;
-}
-
-.contenedor_footer .footer_cliente {
-  color: white;
-  margin: 17px;
-  text-align: center;
-}
-
-.contenedor_footer .footer_seccion4_redes {
-  color: white;
-  margin: 17px;
-  text-align: center;
 }
 
 .contenedor_footer .footer_seccion4_redes a {
@@ -277,7 +258,7 @@ header {
   height: 100%;
   display: grid;
   gap: 40px;
-  background-color: azure;
+  background-color: #ecf7ff;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, 1fr);
   /* Indicar cuantas filas tendra */
@@ -312,7 +293,7 @@ header {
 .contenedor_principal .contenedor_principal-texto {
   margin-top: 90px;
   grid-area: principal_texto;
-  background-color: azure;
+  background-color: #ecf7ff;
 }
 
 .contenedor_principal .contenedor_principal-texto h1 {
@@ -352,14 +333,14 @@ header {
 .contenedor_principal .titulo_novedades h2 {
   position: static;
   font-size: 44px;
-  color: white;
+  color: #ebf5fc;
   -webkit-text-stroke: 5px white;
   text-transform: uppercase;
 }
 
 .contenedor_principal .contenedor_novedades {
   grid-area: contenedor_novedades;
-  background-color: white;
+  background-color: #ebf5fc;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -375,9 +356,29 @@ header {
   margin-right: 20px;
   margin-top: 30px;
   background: #ebf5fc;
-  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
+  box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contenedor_principal .contenedor_novedades .card_novedades .card_novedades_imagen {
+  width: 280px;
+  height: 310px;
+  border-radius: 3px;
+  overflow: hidden;
+  padding-top: 13px;
+  margin-left: 9px;
+}
+
+.contenedor_principal .contenedor_novedades .card_novedades .card_novedades_imagen img {
+  width: 276px;
+  height: 310px;
+  transition: all 2s ease-in-out;
+}
+
+.contenedor_principal .contenedor_novedades .card_novedades .card_novedades_imagen img:hover {
+  transform: scale(1.2, 1.2);
+  cursor: pointer;
 }
 
 .contenedor_principal .contenedor_novedades .card_novedades h2 {
@@ -395,43 +396,43 @@ header {
   height: 35px;
 }
 
-.contenedor_principal .contenedor_novedades .card_novedades_imagen {
-  width: 280px;
-  height: 310px;
-  border-radius: 3px;
-  overflow: hidden;
-  padding-top: 13px;
-  margin-left: 9px;
-}
-
-.contenedor_principal .contenedor_novedades .card_novedades_imagen img {
-  width: 276px;
-  height: 310px;
-  transition: all 2s ease-in-out;
-}
-
-.contenedor_principal .contenedor_novedades .card_novedades_imagen img:hover {
-  transform: scale(1.2, 1.2);
-  cursor: pointer;
+.contenedor_principal .contenedor_novedades .card_novedades a:hover {
+  color: #ebeef1;
+  background-color: red;
 }
 
 /* ==================pagina productos-hombre-mujer   ========== */
+/* boton checar(se usa en la página carrito igual) */
+.btn_agregarProducto, .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton a {
+  margin-top: 10px;
+  width: 70px;
+  height: 30px;
+  color: white;
+  background-color: #0095ff;
+  box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.1), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
 .contenedor_principal-filtroCategorias-listaProductos {
+  background-color: #ebf5fc;
   width: 100%;
   height: 100%;
   display: grid;
   margin-top: 100px;
   gap: 10px;
-  background-color: white;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, auto);
   /* Indicar cuantas filas tendra */
   grid-template-rows: auto auto;
-  grid-template-areas: "titulo_categoria titulo_categoria titulo_categoria" "filtro_categorias contenedor_cards_productos contenedor_cards_productos";
+  grid-template-areas: "titulo_categoria titulo_categoria titulo_categoria" "filtro_categorias contenedor_cards_productos contenedor_cards_productos";
+  /* contenedores hijos */
+  /* Ocultar el scrollbar de la  lista productos*/
 }
 
-/* contenedores hijos */
-.titulo_categoria {
+.contenedor_principal-filtroCategorias-listaProductos .titulo_categoria {
   grid-area: titulo_categoria;
   width: 500px;
   color: white;
@@ -440,9 +441,16 @@ header {
   margin-top: 31px;
   background-color: #0095ff;
   font-size: 100%;
+  /* personalizacion del contenedor titulo_categoria */
 }
 
-.contenedor_filtroCategorias {
+.contenedor_principal-filtroCategorias-listaProductos .titulo_categoria h2 {
+  font-size: 70px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_filtroCategorias {
   grid-area: filtro_categorias;
   width: 350px;
   height: 400px;
@@ -454,82 +462,44 @@ header {
   padding-left: 20px;
 }
 
-.contenedor_listaProductos {
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos {
   grid-area: contenedor_cards_productos;
   display: flex;
-  background-color: #0095ff;
+  background-color: #ebf5fc;
   flex-wrap: wrap;
   overflow-y: scroll;
   overflow-x: hidden;
   justify-content: center;
-  /* margin-left: 1px; */
   margin-right: 10px;
   margin-top: 10px;
-  border-radius: 5px;
 }
 
-/* Fin de  contenedores hijos */
-/* personalizacion del contenedor titulo_categoria */
-.titulo_categoria h2 {
-  font-size: 70px;
-  font-style: oblique;
-  font-weight: bold;
-}
-
-.filtro_genero {
-  width: 150px;
-  height: 100px;
-  /* background-color: blue; */
-  margin-bottom: 10px;
-  color: #0095ff;
-}
-
-.filtro_categoria {
-  width: 250px;
-  height: 150px;
-  display: inline;
-  flex-wrap: wrap;
-  /* background-color: brown; */
-  color: #0095ff;
-}
-
-.filtro_precio {
-  width: 150px;
-  height: 100px;
-  /* background-color: blue; */
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-top: 40px;
-  color: #0095ff;
-  display: inline;
-  flex-wrap: wrap;
-}
-
-/* Ocultar el scrollbar de la  lista productos*/
-.contenedor_listaProductos::-webkit-scrollbar {
-  display: none;
-}
-
-.card_producto_hombre {
-  background-color: white;
-  width: 230px;
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto {
+  background-color: #ebf5fc;
+  box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 222px;
   height: 340px;
   margin-top: 20px;
   margin-left: 15px;
   padding-right: 30px;
-  box-shadow: 2px 2px 6px 2px #0095ff;
   margin-bottom: 23px;
-  border-radius: 12px;
+  border-radius: 2px;
   transition-delay: 1s;
   transition: width 3s;
+  /* Auste de tamaño de la imagen de cada card */
+  /* contenedor de boton y texto del card */
 }
 
-.card_producto_hombre:hover {
-  transform: scale(1.06);
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen {
+  width: 215px;
+  height: 270px;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
-/* Auste de tamaño de la imagen de cada card */
-.card_producto_imagen img {
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen img {
   padding-top: 10px;
   width: 215px;
   height: 270px;
@@ -537,36 +507,43 @@ header {
   margin-left: 6px;
 }
 
-/* contenedor de boton y texto del card */
-.card_producto-texto_boton {
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen img:hover {
+  transform: scale(1.2, 1.2);
+  cursor: pointer;
+}
+
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton {
   display: flex;
   flex-wrap: wrap;
   width: 215px;
   height: 65px;
   margin-left: 6px;
   padding-left: 10px;
-  background-color: #0095ff;
-  /* border-radius: 5px; */
 }
 
-.card_producto-texto h2 {
-  font-size: 20px;
-  font-weight: bold;
-  height: auto;
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton h2 {
+  font-size: 16px;
   width: 130px;
-  color: white;
+  height: auto;
+  font-weight: bold;
+  color: #0095ff;
 }
 
-.card_boton_comprar {
-  display: none;
-  width: 50px;
-  height: 50px;
-  margin-top: 10px;
-  margin-left: 25px;
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton a:hover {
+  color: #ebeef1;
+  background-color: red;
 }
 
-.card_producto-texto_boton:hover .card_boton_comprar {
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton:hover .card_boton_comprar {
   display: block;
+}
+
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto:hover {
+  transform: scale(1.06);
+}
+
+.contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos::-webkit-scrollbar {
+  display: none;
 }
 
 /* ================ Página carrito ================ */
@@ -577,7 +554,7 @@ header {
   display: grid;
   margin-top: 80px;
   gap: 40px;
-  background-color: azure;
+  background-color: #ecf7ff;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, 1fr);
   /* Indicar cuantas filas tendra */
@@ -590,7 +567,7 @@ header {
 .carrito-contenedor_principal .carrito-texto_principal {
   grid-area: texto_carrito;
   background-color: red;
-  color: white;
+  color: #ebf5fc;
   text-align: center;
 }
 
@@ -610,8 +587,10 @@ header {
   margin-top: 10px;
   gap: 10px;
   margin-bottom: 20px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  background-color: white;
+  margin-left: 5px;
+  background: #ebf5fc;
+  box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, 1fr);
   /* Indicar cuantas filas tendra */
@@ -639,7 +618,6 @@ header {
 
 .carrito-contenedor_principal .carrito-contenedor_productos .card_producto .texto-producto {
   grid-area: contenedor_texto_productos;
-  background-color: white;
   width: 100%;
 }
 
@@ -656,7 +634,7 @@ header {
 
 .carrito-contenedor_principal .carrito-contenedor_productos .card_producto .texto-producto .cantidad_producto input:hover {
   background-color: red;
-  color: white;
+  color: #ebf5fc;
 }
 
 .carrito-contenedor_principal .carrito-contenedor_productos .card_producto .texto-producto .cantidad_producto .eliminar_producto {
@@ -664,7 +642,7 @@ header {
   margin-left: 22px;
   padding: 10px 25px;
   background-color: red;
-  color: white;
+  color: #ebf5fc;
   cursor: pointer;
   border-radius: 5px;
   text-decoration: none;
@@ -673,7 +651,7 @@ header {
 
 .carrito-contenedor_principal .carrito-contenedor_productos .card_producto .texto-producto .cantidad_producto .eliminar_producto:hover {
   background-color: skyblue;
-  color: white;
+  color: #ebf5fc;
   font-weight: 600;
   border: 1px solid white;
 }
@@ -704,94 +682,134 @@ header {
   display: grid;
   margin-top: 80px;
   gap: 10px;
-  background-color: white;
+  background-color: #ebf5fc;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, 1fr);
   /* Indicar cuantas filas tendra */
   grid-template-rows: 100px 400px auto 100px auto;
   /* acomodar el grid */
   grid-template-areas: "titulo_descuentos titulo_descuentos titulo_descuentos" "card_img_descuento card_img_descuento texto_descuentos" "contenedor_descuentos contenedor_descuentos contenedor_descuentos" "titulo_fechas titulo_fechas titulo_fechas" "contenedor_fechas contenedor_fechas contenedor_fechas";
+  /* Contenedor del titulo principal de descuentos */
+  /* contenedor y card de la seccion descuentos */
 }
 
-/* Contenedor del titulo principal de descuentos */
-.titulo_descuentos {
+.contenedor_principal-descuentos-fechas .titulo_descuentos {
   grid-area: titulo_descuentos;
-  color: white;
+  color: #ebf5fc;
   text-align: center;
   background-color: red;
   font-size: 100%;
+  /* Texto tiulo descuentos */
 }
 
-.card_imagen_descuento {
-  grid-area: card_img_descuento;
-}
-
-.card_imagen_descuento img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-}
-
-.informacion_descuentos_fechas {
-  padding: 10px;
-  grid-area: texto_descuentos;
-  font-size: 20px;
-}
-
-/* contenedor y card de la seccion descuentos */
-.contenedor_cards_descuentos {
-  grid-area: contenedor_descuentos;
-  background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  /* background-color: chartreuse; */
-  margin-top: 10px;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.titulo_fechas {
-  grid-area: titulo_fechas;
-  color: white;
-  text-align: center;
-  background-color: blue;
-  font-size: 100%;
-}
-
-.contenedor_cards_fechas {
-  grid-area: contenedor_fechas;
-  display: flex;
-  flex-wrap: wrap;
-  /* background-color: violet; */
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-/* Texto tiulo descuentos */
-.titulo_descuentos h2 {
+.contenedor_principal-descuentos-fechas .titulo_descuentos h2 {
   font-size: 70px;
   font-style: oblique;
   font-weight: bold;
 }
 
-.informacion_descuentos_fechas p {
+.contenedor_principal-descuentos-fechas .card_imagen_descuento {
+  grid-area: card_img_descuento;
+}
+
+.contenedor_principal-descuentos-fechas .card_imagen_descuento img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+.contenedor_principal-descuentos-fechas .informacion_descuentos_fechas {
+  padding: 10px;
+  grid-area: texto_descuentos;
+  font-size: 20px;
+}
+
+.contenedor_principal-descuentos-fechas .informacion_descuentos_fechas p {
   font-style: italic;
 }
 
-/* personalizacion del contenedor card descuentos */
-.card_descuento {
+.contenedor_principal-descuentos-fechas .contenedor_cards_descuentos {
+  grid-area: contenedor_descuentos;
+  background-color: #ebf5fc;
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento {
   width: 400px;
   height: 220px;
-  background-color: white;
+  background-color: #ebf5fc;
   margin-left: 12px;
   margin-top: 23px;
   border-radius: 20px;
 }
 
-.card_fecha {
+.contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .cobertura_img_card {
+  background-color: #ebf5fc;
   width: 400px;
   height: 220px;
-  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 5px solid red;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .texto_card_descuento {
+  width: 335px;
+  height: 200px;
+  margin-left: 20px;
+  justify-content: center;
+  display: none;
+}
+
+.contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .texto_card_descuento h3 {
+  color: red;
+  margin-bottom: 5px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento:hover .cobertura_img_card {
+  display: none;
+}
+
+.contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento:hover .texto_card_descuento {
+  /* position: absolute; */
+  display: block;
+}
+
+.contenedor_principal-descuentos-fechas .titulo_fechas {
+  grid-area: titulo_fechas;
+  color: #ebf5fc;
+  text-align: center;
+  background-color: blue;
+  font-size: 100%;
+}
+
+.contenedor_principal-descuentos-fechas .titulo_fechas h2 {
+  font-size: 70px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.contenedor_principal-descuentos-fechas .contenedor_cards_fechas {
+  grid-area: contenedor_fechas;
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.contenedor_principal-descuentos-fechas .contenedor_cards_fechas .card_fecha {
+  width: 400px;
+  height: 220px;
+  background-color: #ebf5fc;
   margin-left: 12px;
   margin-top: 23px;
   animation: card_fecha 9s infinite;
@@ -809,54 +827,6 @@ header {
   }
 }
 
-/* como esta al principio */
-.card_descuento .cobertura_img_card {
-  /* background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(150px); */
-  background-color: white;
-  height: 220px;
-  width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  border: 5px solid red;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
-}
-
-.card_descuento:hover .cobertura_img_card {
-  display: none;
-}
-
-/* Texto del card_descuento */
-.contenedor_cards_descuentos .card_descuento .texto_card_descuento {
-  width: 335px;
-  height: 200px;
-  margin-left: 20px;
-  justify-content: center;
-  /* background-color: yellow; */
-  display: none;
-}
-
-.card_descuento:hover .texto_card_descuento {
-  /* position: absolute; */
-  display: block;
-}
-
-.texto_card_descuento h3 {
-  color: red;
-  margin-bottom: 5px;
-  font-size: 24px;
-  text-align: center;
-}
-
-/* Titulo y fondo de la seccion fechas importantes */
-.titulo_fechas h2 {
-  font-size: 70px;
-  font-style: oblique;
-  font-weight: bold;
-}
-
 /* ================= Pagina Quienes somos ==================*/
 .contenedor_principal_quienes-somos {
   width: 100%;
@@ -864,27 +834,29 @@ header {
   display: grid;
   margin-top: 80px;
   gap: 10px;
-  background-color: white;
+  background-color: #ebf5fc;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, 1fr);
   /* Indicar cuantas filas tendra */
   grid-template-rows: auto auto auto 100px auto;
   /* acomodar el grid */
-  grid-template-areas: "titulo_QuienesSomos titulo_QuienesSomos titulo_QuienesSomos" "texto_conocenos texto_conocenos titulo_amigoMes" "texto_conocenos texto_conocenos imagen_amigoEspecial" "titulo_amigos titulo_amigos titulo_amigos " "contenedor_marcas contenedor_marcas contenedor_marcas";
+  grid-template-areas: "titulo_QuienesSomos titulo_QuienesSomos titulo_QuienesSomos" "texto_conocenos texto_conocenos titulo_amigoMes" "texto_conocenos texto_conocenos imagen_amigoEspecial" "titulo_amigos titulo_amigos titulo_amigos " "contenedor_marcas contenedor_marcas contenedor_marcas";
   /* Contenedor de titulo y parrafo de la empresa */
   /* Contenedor de cards de marcas */
 }
 
 .contenedor_principal_quienes-somos .contenedor_titulo_quienesSomos {
   grid-area: titulo_QuienesSomos;
-  background-color: paleturquoise;
+  background-color: red;
+  color: white;
 }
 
 .contenedor_principal_quienes-somos .conocenos_textos {
+  background-color: white;
+  box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
   grid-area: texto_conocenos;
   margin-left: 20px;
   font-size: 20px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .contenedor_principal_quienes-somos .contenedor_titulo_amigoMes {
@@ -901,9 +873,14 @@ header {
   margin-left: 20px;
 }
 
+.contenedor_principal_quienes-somos .contenedor_amigoEspecial_instagram:hover {
+  border: 3px solid silver;
+  box-shadow: 4px 4px 13px rgba(255, 44, 44, 0.8);
+  transform: scale(1.1);
+}
+
 .contenedor_principal_quienes-somos .titulo_amigos {
   grid-area: titulo_amigos;
-  /* background-color: #0095ff; */
   color: #0095ff;
   text-align: center;
   font-size: 190px;
@@ -915,6 +892,15 @@ header {
   font-family: cursive;
 }
 
+@keyframes titulo_amigoMes {
+  0% {
+    transform: skewX(20deg);
+  }
+  100% {
+    transform: skewX(-20deg);
+  }
+}
+
 .contenedor_principal_quienes-somos .contenedor-marcas {
   grid-area: contenedor_marcas;
   display: flex;
@@ -923,7 +909,6 @@ header {
 }
 
 .contenedor_principal_quienes-somos .contenedor-marcas .card_instagram_marca {
-  background-color: blue;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 22px;
@@ -934,21 +919,6 @@ header {
   transform: scale(1.05);
 }
 
-@keyframes titulo_amigoMes {
-  0% {
-    transform: skewX(20deg);
-  }
-  100% {
-    transform: skewX(-20deg);
-  }
-}
-
-.contenedor_amigoEspecial_instagram:hover {
-  border: 3px solid silver;
-  box-shadow: 4px 4px 13px rgba(255, 44, 44, 0.8);
-  transform: scale(1.1);
-}
-
 /* =================== página contactanos ================*/
 .contenedor_principal-contactanos {
   width: 100%;
@@ -956,15 +926,30 @@ header {
   display: grid;
   margin-top: 100px;
   gap: 10px;
-  background-color: white;
+  background-color: #ebf5fc;
+  box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(2, auto);
   /* Indicar cuantas filas tendra */
   grid-template-rows: 100px 300px 300px;
   /* acomodar el grid */
-  grid-template-areas: "titulo_contactanos titulo_contactanos" "contenedor_info_empresa contenedor_formulario" "contenedor_info_empresa contenedor_formulario";
-  /*fila 2*/
+  grid-template-areas: "titulo_contactanos titulo_contactanos" "contenedor_info_empresa contenedor_formulario" "contenedor_info_empresa contenedor_formulario";
   /* Contenedor principal formulario */
+}
+
+.contenedor_principal-contactanos .titulo_contactanos {
+  grid-area: titulo_contactanos;
+  color: #ebf5fc;
+  background-color: red;
+  font-size: 100%;
+  /* Texto tiulo descuentos */
+}
+
+.contenedor_principal-contactanos .titulo_contactanos h2 {
+  margin-top: 0px;
+  font-size: 70px;
+  font-style: oblique;
+  font-weight: bold;
 }
 
 .contenedor_principal-contactanos .contenedor_datos_empresa {
@@ -973,6 +958,24 @@ header {
   align-items: center;
   text-align: center;
   padding: 0px 120px 0px 0px;
+}
+
+.contenedor_principal-contactanos .contenedor_datos_empresa .item {
+  margin-bottom: 65px;
+}
+
+.contenedor_principal-contactanos .contenedor_datos_empresa .item h3 {
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.contenedor_principal-contactanos .contenedor_datos_empresa .item span {
+  font-size: 18px;
+}
+
+.contenedor_principal-contactanos .contenedor_datos_empresa .iconos_contacto a {
+  padding: 0px 0px 0px 30px;
+  font-size: 24px;
 }
 
 .contenedor_principal-contactanos .contenedor_formulario {
@@ -986,174 +989,44 @@ header {
   transform: scale(1.03);
 }
 
-.titulo_contactanos {
-  grid-area: titulo_contactanos;
-  color: white;
-  background-color: red;
-  font-size: 100%;
-  /* Texto tiulo descuentos */
-}
-
-.titulo_contactanos h2 {
-  margin-top: 0px;
-  font-size: 70px;
-  font-style: oblique;
-  font-weight: bold;
-}
-
-.contenedor_datos_empresa .item {
-  margin-bottom: 65px;
-}
-
-.contenedor_datos_empresa .item h3 {
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-}
-
-.contenedor_datos_empresa .item span {
-  font-size: 18px;
-}
-
-.iconos_contacto a {
-  padding: 0px 0px 0px 30px;
-  font-size: 24px;
-}
-
-/* fin d epersonalizacion de contenedor de datos de la empresa */
-/* == Personalización del contenedor formulario ===*/
-.contenedor_formulario .inputs_cliente {
-  width: 500px;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-
-.contenedor_formulario .inputs_cliente input {
-  width: 45%;
-  font-size: 20px;
-  padding: 10px;
-  border: 2px solid brown;
-  outline-color: slateblue;
-  border-radius: 5px;
-}
-
-.contenedor_formulario textarea {
-  width: 100%;
-  font-size: 20px;
-  height: 300px;
-  padding: 10px;
-  border: 2px solid brown;
-  outline-color: lightgreen;
-  border-radius: 5px;
-  margin-bottom: 30px;
-  resize: none;
-}
-
-.contenedor_formulario button {
-  background: red;
-  padding: 20px 40px;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  cursor: pointer;
-  color: white;
-}
-
-/* Fin del contenedor formulario */
-/* Preguntas frecuentes  */
-.titulo_principal_preguntas_frecuentes {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  background-color: rebeccapurple;
-  width: 400px;
-  height: 80px;
-}
-
-.titulo_principal_preguntas_frecuentes .titulo_principal_preguntas_frecuentes h1 {
-  color: white;
-  font-weight: bold;
-}
-
-.contenedor_principal-preguntas-frecuentes {
-  width: 1300px;
-  height: 700px;
-  margin-bottom: 40px;
-  margin-left: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  /* background-color: black; */
-}
-
-.contenedor_pregunta-respuesta {
-  background-color: white;
-  width: 400px;
-  height: 200px;
-  margin-bottom: 15px;
-  margin-left: 30px;
-  margin-top: 10px;
-  box-shadow: 0px 8px 16px 0px rebeccapurple;
-  border-radius: 10px;
-}
-
-/* Página Terminos y condiciones */
-.titulo_principal-terminosCondiciones {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  background-color: silver;
-  width: 500px;
-  height: 80px;
-}
-
-.titulo_principal-terminosCondiciones .titulo_principal_terminosCondiciones h1 {
-  color: white;
-  font-weight: bold;
-}
-
-.contenedor_terminos-condiciones {
-  width: 780px;
-  height: 680px;
-  margin-left: 30px;
-  margin-bottom: 25px;
-  background-color: white;
-  box-shadow: 0px 8px 16px 2px silver;
-}
-
 /* navbar responsive*/
 @media screen and (max-width: 600px) {
-  .menu_enlaces_navbar {
+  header {
+    min-width: 320px;
+    width: auto;
+    min-width: 320px;
+  }
+  header .navbar {
+    min-width: 320px;
+    width: 100%;
+    background-color: #0095ff;
+  }
+  header .navbar #barra_desplegable:checked ~ .menu_enlaces_navbar {
+    max-height: 600px;
+    margin-right: 5px;
+    margin-left: 10px;
+  }
+  header .navbar label {
+    display: inline-flex;
+    /*Lo convierte en un contenedor flexible en línea para el icono. Se utiliza para centrar el icono dentro de este cuadro.*/
+    align-items: center;
+    cursor: pointer;
+  }
+  header .navbar .menu_enlaces_navbar {
     min-width: 320px;
     width: 100%;
     max-height: 0;
     /*Hace que la altura máxima sea 0 al lado del menú expandido.*/
     overflow: hidden;
   }
-  .lista_enlaces {
+  header .navbar .menu_enlaces_navbar .lista_enlaces {
     flex-direction: column;
     /*Cambia la dirección del contenedor flexible. Por defecto es una fila, así que lo cambiamos a columna en pantallas pequeñas.*/
     align-items: center;
     padding: 20px;
   }
-  header {
-    min-width: 320px;
-    width: 100%;
-  }
-  .navbar {
-    min-width: 320px;
-    width: 100%;
-    background-color: #0095ff;
-  }
-  .navbar label {
-    display: inline-flex;
-    /*Lo convierte en un contenedor flexible en línea para el icono. Se utiliza para centrar el icono dentro de este cuadro.*/
-    align-items: center;
-    cursor: pointer;
-  }
-  .dropdown-contenedor {
+  header .navbar .menu_enlaces_navbar .lista_enlaces .dropdown-contenedor {
     position: fixed;
-  }
-  #barra_desplegable:checked ~ .menu_enlaces_navbar {
-    max-height: 600px;
-    margin-right: 5px;
-    margin-left: 10px;
   }
 }
 
@@ -1172,29 +1045,30 @@ header {
     grid-template-rows: auto auto 100px auto;
     grid-template-areas: "principal_imagen" "principal_texto" "titulo_novedades" "contenedor_novedades";
     gap: 10px;
+    /* contenedor de imagen principal */
   }
-  /* contenedor de imagen principal */
-  .contenedor_principal-imagen {
+  .contenedor_principal .contenedor_principal-imagen {
     width: 98%;
     max-width: 590px;
     background-color: steelblue;
     /* contenedor de imagen principal */
   }
-  .contenedor_principal-imagen img {
+  .contenedor_principal .contenedor_principal-imagen img {
     width: 100%;
     min-width: 320px;
     max-width: 590px;
     min-height: 200px;
     background-color: steelblue;
   }
-  .contenedor_principal-texto {
+  .contenedor_principal .contenedor_principal-texto {
     width: 98%;
     min-width: 320px;
     max-width: 590px;
     margin-top: 0px;
+    /* contenedor de texto principal */
+    /* contenedor del boton checar */
   }
-  /* contenedor de texto principal */
-  .contenido_principal-texto {
+  .contenedor_principal .contenedor_principal-texto .contenido_principal-texto {
     font-size: 15px;
     margin-top: 0px;
     margin-right: 5px;
@@ -1202,58 +1076,33 @@ header {
     padding-right: 4px;
     text-align: start;
   }
-  /* contenedor del boton checar */
-  .contenedor_boton_checar {
+  .contenedor_principal .contenedor_principal-texto .contenedor_boton_checar {
     margin-bottom: 30px;
     margin-right: 20px;
     margin-left: 5px;
   }
-  .contenedor_novedades {
+  .contenedor_principal .contenedor_novedades {
     width: auto;
     min-width: 320px;
     max-width: 590px;
   }
-  .card_novedades {
-    background-color: #0095ff;
+  .contenedor_principal .contenedor_novedades .card_novedades {
+    background-color: #ebf5fc;
     margin-left: 0px;
     margin-right: 0px;
-    box-shadow: 5px 5px 20px #0095ff;
-  }
-  .card-texto_boton {
-    background-color: #0095ff;
   }
   /* Footer */
   .contenedor_footer {
     width: auto;
     height: auto;
     min-width: 320px;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: red;
     /* Indicar cuantas columnas tendra */
     grid-template-columns: 1fr;
     /* Indicar cuantas filas tendra */
     grid-template-rows: repeat(4, auto);
     grid-template-areas: "footer_seccion1_logo" "footer_seccion2_contacto" "footer_cliente" "footer_seccion4_redes";
-  }
-  .contenedor_footer .footer_seccion1_logo {
-    background-color: red;
-    color: white;
-    box-shadow: 4px 8px 16px 10px red;
-  }
-  .contenedor_footer .footer_seccion2_contacto {
-    background-color: red;
-    color: white;
-    box-shadow: 4px 8px 16px 10px red;
-  }
-  .contenedor_footer .footer_cliente {
-    background-color: red;
-    color: white;
-    box-shadow: 4px 8px 16px 10px red;
-  }
-  .contenedor_footer .footer_seccion4_redes {
-    background-color: red;
-    color: white;
-    box-shadow: 4px 8px 16px 10px red;
   }
   /* === Pagina descuentos ==== */
   .contenedor_principal-descuentos-fechas {
@@ -1269,71 +1118,71 @@ header {
     grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas: "titulo_descuentos" "card_img_descuento" "texto_descuentos" "contenedor_descuentos" "titulo_fechas" "contenedor_fechas";
     gap: 10px;
+    /* Contenedor del titulo principal de descuentos */
+    /* contenedor y card de la seccion descuentos */
   }
-  /* Contenedor del titulo principal de descuentos */
-  .titulo_descuentos {
+  .contenedor_principal-descuentos-fechas .titulo_descuentos {
     min-width: 300px;
     max-width: 590px;
     margin-right: 6px;
   }
-  .titulo_descuentos h2 {
+  .contenedor_principal-descuentos-fechas .titulo_descuentos h2 {
     width: 99%;
     font-size: 40px;
   }
-  .card_imagen_descuento {
+  .contenedor_principal-descuentos-fechas .card_imagen_descuento {
     width: 98%;
     max-width: 590px;
   }
-  .card_imagen_descuento img {
+  .contenedor_principal-descuentos-fechas .card_imagen_descuento img {
     width: 100%;
     min-width: 320px;
     max-width: 590px;
     min-height: 200px;
   }
-  .informacion_descuentos_fechas {
+  .contenedor_principal-descuentos-fechas .informacion_descuentos_fechas {
     width: 98%;
     min-width: 320px;
     max-width: 590px;
     margin-top: 0px;
   }
-  .informacion_descuentos_fechas p {
+  .contenedor_principal-descuentos-fechas .informacion_descuentos_fechas p {
     padding: 5px;
   }
-  /* contenedor y card de la seccion descuentos */
-  .contenedor_cards_descuentos {
+  .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos {
     width: 100%;
     min-width: 310px;
   }
-  .card_descuento {
+  .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento {
     width: 98%;
     min-width: 320px;
     margin-left: 0px;
     background-color: #0095ff;
   }
-  .card_descuento .cobertura_img_card {
+  .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .cobertura_img_card {
     width: 100%;
     min-width: 320px;
   }
-  .texto_card_descuento {
+  .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .texto_card_descuento {
     width: 100%;
     min-width: 320px;
     margin-right: 24px;
   }
-  .texto_card_descuento p {
+  .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .texto_card_descuento p {
     margin-right: 34px;
   }
-  .titulo_fechas {
+  .contenedor_principal-descuentos-fechas .titulo_fechas {
     width: 99%;
     min-width: 320px;
   }
-  .titulo_fechas h2 {
+  .contenedor_principal-descuentos-fechas .titulo_fechas h2 {
     font-size: 40px;
   }
-  .contenedor_cards_fechas {
+  .contenedor_principal-descuentos-fechas .contenedor_cards_fechas {
     width: 99%;
     min-width: 320px;
   }
-  .card_fecha {
+  .contenedor_principal-descuentos-fechas .contenedor_cards_fechas .card_fecha {
     margin-right: 12px;
     height: auto;
     width: 100%;
@@ -1440,6 +1289,7 @@ header {
     display: grid;
     margin-top: 50px;
     min-width: 320px;
+    margin-left: 11px;
     overflow: hidden;
     gap: 10px;
     /* Indicar cuantas columnas tendra */
@@ -1448,38 +1298,44 @@ header {
     grid-template-rows: auto auto auto;
     grid-template-areas: "titulo_categoria" "filtro_categorias" "contenedor_cards_productos";
   }
-  .titulo_categoria {
-    width: 100%;
+  .contenedor_principal-filtroCategorias-listaProductos .titulo_categoria {
+    width: auto;
+    min-width: 310px;
   }
-  .titulo_categoria h2 {
+  .contenedor_principal-filtroCategorias-listaProductos .titulo_categoria h2 {
     width: 100%;
     font-size: 40px;
     text-align: center;
     margin-bottom: 20px;
   }
-  .contenedor_filtroCategorias {
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_filtroCategorias {
     width: 97%;
     min-width: 320px;
-    margin-right: 0px;
+    margin-right: 2px;
     margin-left: 0px;
   }
-  .contenedor_listaProductos {
-    width: 98%;
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos {
+    width: auto;
     min-width: 320px;
-    margin-left: 1px;
+    max-width: 590px;
   }
-  .card_producto_hombre {
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto {
     margin-right: 40px;
+    min-width: 320px;
+    background-color: #0095ff;
+    /* contenedor de boton y texto del card */
   }
-  /* Auste de tamaño de la imagen de cada card */
-  .card_producto_imagen img {
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen {
+    min-width: 318px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen img {
+    min-width: 318px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton {
     margin-right: 40px;
+    min-width: 320px;
   }
-  /* contenedor de boton y texto del card */
-  .card_producto-texto_boton {
-    margin-right: 40px;
-  }
-  .card_producto-texto h2 {
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton h2 {
     width: auto;
     margin-right: 40px;
   }

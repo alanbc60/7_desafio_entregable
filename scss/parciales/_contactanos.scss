@@ -1,12 +1,19 @@
 /* =================== página contactanos ================*/
 
+
+@mixin sizes($width, $height){
+    width: $width;
+    height: $height;
+}
+
 .contenedor_principal-contactanos {
-    width:  $width-estandar;
-    height: $height-estandar;
+    @include sizes($width-estandar, $height-estandar);
     display: grid;
     margin-top: 100px;
     gap: 10px;
-    background-color: white;
+    background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+    box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px -1px rgba(255, 255, 255, 0.70);
     /* Indicar cuantas columnas tendra */
     grid-template-columns: repeat(2, auto);
     /* Indicar cuantas filas tendra */
@@ -15,17 +22,50 @@
     /* acomodar el grid */
     grid-template-areas:
         "titulo_contactanos titulo_contactanos"
-        /*fila 1*/
         "contenedor_info_empresa contenedor_formulario"
-        /*fila 2*/
         "contenedor_info_empresa contenedor_formulario";
-    /*fila 2*/
+
+    .titulo_contactanos {
+        grid-area: titulo_contactanos;
+        color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+        background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
+        font-size: 100%;
+
+        /* Texto tiulo descuentos */
+        h2 {
+            margin-top: 0px;
+            font-size: 70px;
+            font-style: oblique;
+            font-weight: bold;
+        }
+    }
+
     .contenedor_datos_empresa {
         grid-area: contenedor_info_empresa;
         list-style: none;
         align-items: center;
         text-align: center;
         padding: 0px 120px 0px 0px;
+
+        .item {
+            margin-bottom: 65px;
+            h3 {
+                letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+            span {
+                font-size: 18px;
+            }
+            
+        }
+        
+        .iconos_contacto{
+            a {
+                padding: 0px 0px 0px 30px;
+                font-size: 24px;
+            }
+        }
+        
     }
 
     /* Contenedor principal formulario */
@@ -36,7 +76,7 @@
         align-items: center;
     }
 
-    .contenedor_formulario:hover{
+    .contenedor_formulario:hover {
         transform: scale(1.03);
     }
 
@@ -44,150 +84,6 @@
 }
 
 
-.titulo_contactanos {
-    grid-area: titulo_contactanos;
-    color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
-    background-color: map-get($map: $paleta-colores, $key: 'colorSecundario');
-    font-size: 100%;
-    /* Texto tiulo descuentos */
-    h2 {
-        margin-top: 0px;
-        font-size: 70px;
-        font-style: oblique;
-        font-weight: bold;
-    }
-}
 
 
 
-
-.contenedor_datos_empresa .item {
-    margin-bottom: 65px;
-    h3 {
-        letter-spacing: 2px;
-        margin-bottom: 20px;
-    }
-    span {
-        font-size: 18px;
-    }
-    
-}
-
-.iconos_contacto{
-    a {
-        padding: 0px 0px 0px 30px;
-        font-size: 24px;
-    }
-}
-
-/* fin d epersonalizacion de contenedor de datos de la empresa */
-
-
-
-/* == Personalización del contenedor formulario ===*/
-
-.contenedor_formulario{
-
- .inputs_cliente {
-    width: 500px;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    input {
-        width: 45%;
-        font-size: 20px;
-        padding: 10px;
-        border: 2px solid brown;
-        outline-color: slateblue;
-        border-radius: 5px;
-    }
-    
- }
- textarea {
-    width:  $width-estandar;
-    font-size: 20px;
-    height: 300px;
-    padding: 10px;
-    border: 2px solid brown;
-    outline-color: lightgreen;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    resize: none;
-}
-
- button {
-    background: map-get($map: $paleta-colores, $key: 'colorSecundario');
-    padding: 20px 40px;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    color:map-get($map: $paleta-colores, $key: 'colorPrincipal');
-}
-
-
-}
-
-
-/* Fin del contenedor formulario */
-
-
-/* Preguntas frecuentes  */
-.titulo_principal_preguntas_frecuentes {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    background-color: rebeccapurple;
-    width: 400px;
-    height: 80px;
-    .titulo_principal_preguntas_frecuentes h1 {
-        color: white;
-        font-weight: bold;
-    }
-}
-
-
-
-
-.contenedor_principal-preguntas-frecuentes {
-    width: 1300px;
-    height: 700px;
-    margin-bottom: 40px;
-    margin-left: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    /* background-color: black; */
-}
-
-.contenedor_pregunta-respuesta {
-    background-color: white;
-    width: 400px;
-    height: 200px;
-    margin-bottom: 15px;
-    margin-left: 30px;
-    margin-top: 10px;
-    box-shadow: 0px 8px 16px 0px rebeccapurple;
-    border-radius: 10px;
-}
-
-/* Página Terminos y condiciones */
-
-.titulo_principal-terminosCondiciones {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    background-color: silver;
-    width: 500px;
-    height: 80px;
-    .titulo_principal_terminosCondiciones h1 {
-        color: white;
-        font-weight: bold;
-    }
-}
-
-
-.contenedor_terminos-condiciones {
-    width: 780px;
-    height: 680px;
-    margin-left: 30px;
-    margin-bottom: 25px;
-    background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
-    box-shadow: 0px 8px 16px 2px silver;
-}

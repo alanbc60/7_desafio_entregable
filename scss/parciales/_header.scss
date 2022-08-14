@@ -12,8 +12,9 @@ header {
     justify-content: space-between;
     /*Se agrega espacio entre cada elemento secundario de un contenedor flex.*/
     border-bottom: 15px black;
-    background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
+    box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px -1px rgba(255, 255, 255, 0.70);
 
 }
 
@@ -61,7 +62,7 @@ header {
     /*colocar elemento uno a lado de otro hasta que haya espacio */
     gap: 10px;
     /*Espaciado entre botones*/
-    background-color: white;
+    background-color: map-get($map: $paleta-colores, $key: 'colorCard');
     margin-right: 5px;
 }
 
