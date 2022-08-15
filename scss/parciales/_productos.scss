@@ -54,6 +54,8 @@
         }
     }
     .contenedor_filtroCategorias {
+        position: -webkit-sticky;
+        position: sticky;
         grid-area: filtro_categorias;
         @include sizes( 350px, 400px);
         margin-right: 10px;

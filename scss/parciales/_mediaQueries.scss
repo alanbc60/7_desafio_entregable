@@ -3,22 +3,27 @@
     height: $height;
 }
 
+@mixin tamWidthMinimosMaximos($minWidth,$maxWidth){
+    min-width: $minWidth;
+    max-width: $maxWidth;
+}
+@mixin contenedorDisplayGrid($display,$minWidth,$overflow){
+    display: $display;
+    min-width: $minWidth;
+    overflow: $overflow;
+}
+
 /* navbar responsive*/
 @media screen and (max-width: 600px) {
-
-
 
     header {
         min-width: 319px;
         width: auto;
         overflow-x: hidden;
         
-
         .navbar {
-
             overflow-x: hidden;
-            min-width: 310px;
-            max-width: 600px;
+            @include tamWidthMinimosMaximos(310px , 600px);
             width: auto;
             background-color: cadetblue;
             
@@ -29,6 +34,7 @@
                 min-width: 310px;
                 margin-right: 5px;
                 margin-left: 10px;
+                
             }
     
             label {
@@ -73,8 +79,7 @@
     .contenedor_principal {
         display: grid;
         min-width: 320px;
-        overflow-y: hidden;
-        overflow-x: hidden;
+        overflow: hidden;
         grid-template-columns: 1fr;
         background-color: blue($color: #000000);
         grid-template-rows: auto auto 100px auto;
@@ -83,30 +88,27 @@
             "principal_texto"
             "titulo_novedades"
             "contenedor_novedades";
-        gap: 10px;
+        gap: $espacioGridBase;
 
         /* contenedor de imagen principal */
         .contenedor_principal-imagen {
             overflow-x: hidden;
             width: 98%;
             max-width: 590px;
-            background-color: steelblue;
+
 
             /* contenedor de imagen principal */
             img {
                 width: $width-estandar;
-                min-width: 315px;
-                max-width: 590px;
+                @include tamWidthMinimosMaximos(315px , 590px);
                 min-height: 200px;
-                background-color: steelblue;
             }
 
         }
 
         .contenedor_principal-texto {
             width: 98%;
-            min-width: 315px;
-            max-width: 590px;
+            @include tamWidthMinimosMaximos(315px , 590px);
             margin-top: 0px;
             /* contenedor de texto principal */
 
@@ -128,9 +130,7 @@
 
         .contenedor_novedades {
             width: auto;
-            min-width: 320px;
-            max-width: 590px;
-
+            @include tamWidthMinimosMaximos(320px , 590px);
             .card_novedades {
                 background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
                 margin-left: 0px;
@@ -147,7 +147,7 @@
         display: grid;
         min-width: 320px;
         overflow: hidden;
-        gap: 10px;
+        gap: $espacioGridBase;
         /* Indicar cuantas columnas tendra */
         grid-template-columns: 1fr;
         /* Indicar cuantas filas tendra */
@@ -171,6 +171,7 @@
         }
 
         .contenedor_filtroCategorias {
+
             width: 97%;
             min-width: 315px;
             margin-right: 2px;
@@ -180,33 +181,32 @@
 
         .contenedor_listaProductos {
             width: auto;
-            min-width: 315px;
-            max-width: 590px;
-
+            @include tamWidthMinimosMaximos(320px , 590px);
 
             .card_producto {
-                margin-right: 40px;
-                min-width: 320px;
-                background-color: #0095ff;
-
+                min-width: 315px;
+            
                 .card_producto_imagen {
-                    min-width: 318px;
+                    min-width: 305px;
 
                     img {
-                        min-width: 318px;
+                        min-width: 295px;
 
                     }
                 }
 
                 /* contenedor de boton y texto del card */
                 .card_producto-texto_boton {
-                    margin-right: 40px;
-                    min-width: 320px;
+
+                    min-width: 295px;
 
                     h2 {
                         width: auto;
-                        margin-right: 40px;
+                        margin-left: 5px;
 
+                    }
+                    a{
+                        margin-left: 100px;
                     }
                 }
             }
@@ -246,13 +246,12 @@
             "contenedor_descuentos"
             "titulo_fechas"
             "contenedor_fechas";
-        gap: 10px;
+        gap: $espacioGridBase;
 
         /* Contenedor del titulo principal de descuentos */
 
         .titulo_descuentos {
-            min-width: 300px;
-            max-width: 590px;
+            @include tamWidthMinimosMaximos(300px , 590px);
 
             h2 {
                 width: 99%;
@@ -261,23 +260,20 @@
         }
 
         .card_imagen_descuento {
+            @include tamWidthMinimosMaximos(310px , 590px);
             margin-left: 3px;
-            min-width: 310px;
             width: 98%;
-            max-width: 590px;
-
+           
             img {
                 width: $width-estandar;
-                min-width: 310px;
-                max-width: 590px;
+                @include tamWidthMinimosMaximos(310px , 590px);
                 min-height: 200px;
             }
         }
 
         .informacion_descuentos_fechas {
             width: 98%;
-            min-width: 320px;
-            max-width: 590px;
+            @include tamWidthMinimosMaximos(320px , 590px);
             margin-top: 0px;
 
             p {
@@ -360,7 +356,7 @@
             "imagen_amigoEspecial"
             "titulo_amigos"
             "contenedor_marcas";
-        gap: 10px;
+        gap: $espacioGridBase;
 
         .contenedor_titulo_quienesSomos {
             background-color: red;
@@ -485,7 +481,7 @@
             "texto_carrito"
             "contenedor_productos"
             "contenedor_precio_total";
-        gap: 5px;
+        gap: $espacioGridBase;
 
         .carrito-texto_principal {
             grid-area: texto_carrito;
@@ -510,7 +506,7 @@
                 overflow-y: hidden;
                 overflow-x: hidden;
         
-                gap: 10px;
+                gap: $espacioGridBase;
                 margin-top: 10px;
                 background-color: white;
                 /* Indicar cuantas columnas tendra */
@@ -590,7 +586,7 @@
             "principal_imagen principal_texto principal_texto"
             "titulo_novedades titulo_novedades titulo_novedades"
             "contenedor_novedades contenedor_novedades contenedor_novedades";
-        gap: 10px;
+        gap: $espacioGridBase;
     }
 
     /* contenedor de imagen principal */
@@ -689,8 +685,8 @@
         width:  $width-estandar;
         height: $height-estandar;
         margin-top: 100px;
-        gap: 10px;
-        background-color: white;
+        gap: $espacioGridBase;
+        background-color: map-get($map: $paleta-colores, $key: 'colorFondoBlanco');
         /* Indicar cuantas columnas tendra */
         grid-template-columns: auto;
         /* Indicar cuantas filas tendra */
@@ -719,7 +715,7 @@
             "principal_imagen principal_texto principal_texto"
             "titulo_novedades titulo_novedades titulo_novedades"
             "contenedor_novedades contenedor_novedades contenedor_novedades";
-        gap: 10px;
+        gap: $espacioGridBase;
         
         /* contenedor de imagen principal */
         .contenedor_principal-imagen {
@@ -750,7 +746,7 @@
             "texto_carrito"
             "contenedor_productos"
             "contenedor_precio_total";
-        gap: 10px;
+        gap: $espacioGridBase;
     }
 
     .card_producto {
