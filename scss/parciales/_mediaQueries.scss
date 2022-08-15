@@ -9,17 +9,24 @@
 
 
     header {
-        min-width: 320px;
+        min-width: 319px;
         width: auto;
-        min-width: 320px;
+        overflow-x: hidden;
+        
 
         .navbar {
-            min-width: 320px;
-            width: $width-estandar;
-            background-color: #0095ff;
-    
+
+            overflow-x: hidden;
+            min-width: 310px;
+            max-width: 600px;
+            width: auto;
+            background-color: cadetblue;
+            
+            //contenedor cuando se cliquea el icono 
             #barra_desplegable:checked~.menu_enlaces_navbar {
+                z-index: 1;
                 max-height: 600px;
+                min-width: 310px;
                 margin-right: 5px;
                 margin-left: 10px;
             }
@@ -68,10 +75,8 @@
         min-width: 320px;
         overflow-y: hidden;
         overflow-x: hidden;
-        margin-right: 5px;
-        margin-left: 5px;
         grid-template-columns: 1fr;
-        background-color: #fff;
+        background-color: blue($color: #000000);
         grid-template-rows: auto auto 100px auto;
         grid-template-areas:
             "principal_imagen"
@@ -79,8 +84,10 @@
             "titulo_novedades"
             "contenedor_novedades";
         gap: 10px;
+
         /* contenedor de imagen principal */
         .contenedor_principal-imagen {
+            overflow-x: hidden;
             width: 98%;
             max-width: 590px;
             background-color: steelblue;
@@ -88,30 +95,29 @@
             /* contenedor de imagen principal */
             img {
                 width: $width-estandar;
-                min-width: 320px;
+                min-width: 315px;
                 max-width: 590px;
                 min-height: 200px;
                 background-color: steelblue;
             }
+
         }
 
         .contenedor_principal-texto {
             width: 98%;
-            min-width: 320px;
+            min-width: 315px;
             max-width: 590px;
             margin-top: 0px;
-                /* contenedor de texto principal */
+            /* contenedor de texto principal */
 
             .contenido_principal-texto {
                 font-size: 15px;
                 margin-top: 0px;
-                margin-right: 5px;
-                margin-left: 5px;
                 padding-right: 4px;
                 text-align: start;
 
             }
-            
+
             /* contenedor del boton checar */
             .contenedor_boton_checar {
                 margin-bottom: 30px;
@@ -124,14 +130,87 @@
             width: auto;
             min-width: 320px;
             max-width: 590px;
+
             .card_novedades {
                 background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
                 margin-left: 0px;
                 margin-right: 0px;
-                
+
             }
         }
 
+    }
+
+    /* ==== Contenedor principal de filtro categorias y productos */
+
+    .contenedor_principal-filtroCategorias-listaProductos {
+        display: grid;
+        min-width: 320px;
+        overflow: hidden;
+        gap: 10px;
+        /* Indicar cuantas columnas tendra */
+        grid-template-columns: 1fr;
+        /* Indicar cuantas filas tendra */
+        grid-template-rows: auto auto auto;
+
+        grid-template-areas:
+            "titulo_categoria"
+            "filtro_categorias"
+            "contenedor_cards_productos";
+
+        .titulo_categoria {
+            width: auto;
+            min-width: 310px;
+
+            h2 {
+                width: 100%;
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        .contenedor_filtroCategorias {
+            width: 97%;
+            min-width: 315px;
+            margin-right: 2px;
+            margin-left: 0px;
+        }
+
+
+        .contenedor_listaProductos {
+            width: auto;
+            min-width: 315px;
+            max-width: 590px;
+
+
+            .card_producto {
+                margin-right: 40px;
+                min-width: 320px;
+                background-color: #0095ff;
+
+                .card_producto_imagen {
+                    min-width: 318px;
+
+                    img {
+                        min-width: 318px;
+
+                    }
+                }
+
+                /* contenedor de boton y texto del card */
+                .card_producto-texto_boton {
+                    margin-right: 40px;
+                    min-width: 320px;
+
+                    h2 {
+                        width: auto;
+                        margin-right: 40px;
+
+                    }
+                }
+            }
+        }
     }
 
 
@@ -156,13 +235,8 @@
     /* === Pagina descuentos ==== */
     .contenedor_principal-descuentos-fechas {
         display: grid;
-        min-width: 300px;
-        overflow-y: hidden;
-        overflow-x: hidden;
-        margin: 3px;
-        margin-top: 75px;
-        margin-right: 6px;
-        margin-left: 5px;
+        min-width: 320px;
+        overflow: hidden;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto auto auto;
         grid-template-areas:
@@ -173,26 +247,28 @@
             "titulo_fechas"
             "contenedor_fechas";
         gap: 10px;
-        
+
         /* Contenedor del titulo principal de descuentos */
 
         .titulo_descuentos {
             min-width: 300px;
             max-width: 590px;
-            margin-right: 6px;
-            
+
             h2 {
                 width: 99%;
                 font-size: 40px
             }
         }
+
         .card_imagen_descuento {
+            margin-left: 3px;
+            min-width: 310px;
             width: 98%;
             max-width: 590px;
-    
+
             img {
                 width: $width-estandar;
-                min-width: 320px;
+                min-width: 310px;
                 max-width: 590px;
                 min-height: 200px;
             }
@@ -203,50 +279,53 @@
             min-width: 320px;
             max-width: 590px;
             margin-top: 0px;
-    
+
             p {
                 padding: 5px;
             }
         }
-            /* contenedor y card de la seccion descuentos */
+
+        /* contenedor y card de la seccion descuentos */
         .contenedor_cards_descuentos {
             width: $width-estandar;
-            min-width: 310px;
+            min-width: 306px;
 
             .card_descuento {
                 width: 98%;
-                min-width: 320px;
-                margin-left: 0px;
+                min-width: 306px;
                 background-color: #0095ff;
-                
+                margin-right: 12px;
+
                 .cobertura_img_card {
                     width: $width-estandar;
-                    min-width: 320px;
+                    min-width: 306px;
                 }
-                
+
                 .texto_card_descuento {
                     width: 100%;
-                    min-width: 320px;
+                    min-width: 306px;
                     margin-right: 24px;
-            
+
                     p {
                         margin-right: 34px;
                     }
                 }
             }
         }
+
         .titulo_fechas {
             width: 99%;
             min-width: 320px;
-    
+
             h2 {
                 font-size: 40px;
             }
         }
+
         .contenedor_cards_fechas {
             width: 99%;
             min-width: 320px;
-            
+
             .card_fecha {
                 margin-right: 12px;
                 height: auto;
@@ -254,7 +333,7 @@
                 border-radius: 20px;
                 min-width: 320px;
             }
-    
+
         }
 
     }
@@ -282,13 +361,14 @@
             "titulo_amigos"
             "contenedor_marcas";
         gap: 10px;
+
         .contenedor_titulo_quienesSomos {
             background-color: red;
             font-size: 50px;
             color: white;
-    
+
         }
-    
+
         .conocenos_textos {
             box-shadow: 4px 2px 4px 3px rgba(0, 0, 0, 0.2);
             justify-content: center;
@@ -296,25 +376,27 @@
             margin-right: 8px;
             font-size: 12px;
         }
+
         .contenedor_titulo_amigoMes {
             margin: 10px;
             justify-content: center;
         }
-    
+
         .contenedor_amigoEspecial_instagram {
             margin-left: 0px;
             width: auto;
             justify-content: center;
             text-align: center;
         }
+
         .titulo_amigos {
             margin-top: 10px;
             color: white;
             background-color: red;
             height: 100px;
-    
+
         }
-    
+
     }
 
 
@@ -324,9 +406,7 @@
         display: grid;
         min-width: 320px;
         overflow: hidden;
-        margin-top: 60px;
         margin-right: 5px;
-        margin-left: 5px;
         grid-template-columns: 1fr;
         /* Indicar cuantas filas tendra */
         grid-template-rows: auto auto auto;
@@ -387,87 +467,8 @@
 
     }
 
-    /* ==== Contenedor principal de filtro categorias y productos */
-
-    .contenedor_principal-filtroCategorias-listaProductos {
-        display: grid;
-        margin-top: 50px;
-        min-width: 320px;
-        margin-left: 11px;
-        overflow: hidden;
-        gap: 10px;
-        /* Indicar cuantas columnas tendra */
-        grid-template-columns: 1fr;
-        /* Indicar cuantas filas tendra */
-        grid-template-rows: auto auto auto;
-
-        grid-template-areas:
-            "titulo_categoria"
-            "filtro_categorias"
-            "contenedor_cards_productos";
-
-        .titulo_categoria {
-            width: auto;
-            min-width: 310px;
-            
-            h2 {
-                width: 100%;
-                font-size: 40px;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-        }
-        .contenedor_filtroCategorias {
-            width: 97%;
-            min-width: 320px;
-            margin-right: 2px;
-            margin-left: 0px;
-        }    
-
-
-        .contenedor_listaProductos {
-            width: auto;
-            min-width: 320px;
-            max-width: 590px;
-
-
-            .card_producto {
-                margin-right: 40px;
-                min-width: 320px;
-                background-color: #0095ff;
-                .card_producto_imagen{
-                    min-width: 318px;
-                    img {
-                        min-width: 318px;
-                        
-                    }
-                }
-
-                /* contenedor de boton y texto del card */
-                .card_producto-texto_boton {
-                    margin-right: 40px;
-                    min-width: 320px;
-
-                    h2 {
-                        width: auto;
-                        margin-right: 40px;
-                
-                    }
-                }
-            }
-        }
-    }
-
-
-
-
-
-
-
-
 
 }
-
 /* Smartphone pagina carrito */
 @media screen and (max-width: 530px) and (min-width: 300px) {
 
@@ -475,12 +476,9 @@
     .carrito-contenedor_principal {
         display: grid;
         height: auto;
-        min-width: 300px;
+        min-width: 320px;
         overflow-y: hidden;
         overflow-x: hidden;
-        margin: 3px;
-        margin-right: 8px;
-        margin-left: 8px;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas:

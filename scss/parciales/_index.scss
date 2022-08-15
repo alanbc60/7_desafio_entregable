@@ -64,8 +64,11 @@
  
     /* contenedor de la imagen */
     .contenedor_principal-imagen {
-        margin-top: 90px;
         grid-area: principal_imagen;
+
+        .carousel-indicators{
+            z-index: 1;
+        }
 
         img {
             @include sizes($width-estandar, 340px);
@@ -82,7 +85,6 @@
 
     /* contenedor donde esta el texto principal y el boton */
     .contenedor_principal-texto {
-        margin-top: 90px;
         grid-area: principal_texto;
         background-color: map-get($map: $paleta-colores, $key: 'segundoColorPrincipal');
 
@@ -96,7 +98,7 @@
         .contenido_principal-texto {
             font-size: 18px;
             @include sizes(92%, auto);
-            margin-right: 230px;
+            // margin-right: 230px;
             margin-left: 20px;
         }
 
@@ -109,6 +111,12 @@
         50% {
             background-image: linear-gradient(90deg, red 0%, #000066 100%);
         }
+        from {
+            transform: translateY(5px);
+          }
+          to {
+            transform: translateY(-5px);
+          }
     }
 
     /* ================ Novedades ================ */

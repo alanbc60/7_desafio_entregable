@@ -1,12 +1,15 @@
 header {
-    position: fixed;
-    z-index: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 3;
     width: 100%;
     top: 0;
 }
 
 .navbar {
+    z-index: 2;
     position: absolute;
+    position: -webkit-sticky;
     flex-wrap: wrap;
     /*permite que los elementos dentro de la navbar pasan en la siguiente fila si no hay espacio */
     justify-content: space-between;

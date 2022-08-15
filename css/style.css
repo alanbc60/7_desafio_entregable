@@ -13,14 +13,17 @@ body {
 }
 
 header {
-  position: fixed;
-  z-index: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 3;
   width: 100%;
   top: 0;
 }
 
 .navbar {
+  z-index: 2;
   position: absolute;
+  position: -webkit-sticky;
   flex-wrap: wrap;
   /*permite que los elementos dentro de la navbar pasan en la siguiente fila si no hay espacio */
   justify-content: space-between;
@@ -273,8 +276,11 @@ header {
 }
 
 .contenedor_principal .contenedor_principal-imagen {
-  margin-top: 90px;
   grid-area: principal_imagen;
+}
+
+.contenedor_principal .contenedor_principal-imagen .carousel-indicators {
+  z-index: 1;
 }
 
 .contenedor_principal .contenedor_principal-imagen img {
@@ -291,7 +297,6 @@ header {
 }
 
 .contenedor_principal .contenedor_principal-texto {
-  margin-top: 90px;
   grid-area: principal_texto;
   background-color: #ecf7ff;
 }
@@ -307,7 +312,6 @@ header {
   font-size: 18px;
   width: 92%;
   height: auto;
-  margin-right: 230px;
   margin-left: 20px;
 }
 
@@ -318,6 +322,12 @@ header {
 @keyframes index_texto_animado {
   50% {
     background-image: linear-gradient(90deg, red 0%, #000066 100%);
+  }
+  from {
+    transform: translateY(5px);
+  }
+  to {
+    transform: translateY(-5px);
   }
 }
 
@@ -421,7 +431,6 @@ header {
   width: 100%;
   height: 100%;
   display: grid;
-  margin-top: 100px;
   gap: 10px;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, auto);
@@ -552,8 +561,8 @@ header {
   width: 100%;
   height: 100%;
   display: grid;
-  margin-top: 80px;
-  gap: 40px;
+  margin-top: 8px;
+  gap: 10px;
   background-color: #ecf7ff;
   /* Indicar cuantas columnas tendra */
   grid-template-columns: repeat(3, 1fr);
@@ -680,7 +689,6 @@ header {
   width: 100%;
   height: 100%;
   display: grid;
-  margin-top: 80px;
   gap: 10px;
   background-color: #ebf5fc;
   /* Indicar cuantas columnas tendra */
@@ -832,7 +840,6 @@ header {
   width: 100%;
   height: 100%;
   display: grid;
-  margin-top: 80px;
   gap: 10px;
   background-color: #ebf5fc;
   /* Indicar cuantas columnas tendra */
@@ -924,7 +931,6 @@ header {
   width: 100%;
   height: 100%;
   display: grid;
-  margin-top: 100px;
   gap: 10px;
   background-color: #ebf5fc;
   box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.7);
@@ -992,17 +998,21 @@ header {
 /* navbar responsive*/
 @media screen and (max-width: 600px) {
   header {
-    min-width: 320px;
+    min-width: 319px;
     width: auto;
-    min-width: 320px;
+    overflow-x: hidden;
   }
   header .navbar {
-    min-width: 320px;
-    width: 100%;
-    background-color: #0095ff;
+    overflow-x: hidden;
+    min-width: 310px;
+    max-width: 600px;
+    width: auto;
+    background-color: cadetblue;
   }
   header .navbar #barra_desplegable:checked ~ .menu_enlaces_navbar {
+    z-index: 1;
     max-height: 600px;
+    min-width: 310px;
     margin-right: 5px;
     margin-left: 10px;
   }
@@ -1038,16 +1048,15 @@ header {
     min-width: 320px;
     overflow-y: hidden;
     overflow-x: hidden;
-    margin-right: 5px;
-    margin-left: 5px;
     grid-template-columns: 1fr;
-    background-color: #fff;
+    background-color: 0;
     grid-template-rows: auto auto 100px auto;
     grid-template-areas: "principal_imagen" "principal_texto" "titulo_novedades" "contenedor_novedades";
     gap: 10px;
     /* contenedor de imagen principal */
   }
   .contenedor_principal .contenedor_principal-imagen {
+    overflow-x: hidden;
     width: 98%;
     max-width: 590px;
     background-color: steelblue;
@@ -1055,14 +1064,14 @@ header {
   }
   .contenedor_principal .contenedor_principal-imagen img {
     width: 100%;
-    min-width: 320px;
+    min-width: 315px;
     max-width: 590px;
     min-height: 200px;
     background-color: steelblue;
   }
   .contenedor_principal .contenedor_principal-texto {
     width: 98%;
-    min-width: 320px;
+    min-width: 315px;
     max-width: 590px;
     margin-top: 0px;
     /* contenedor de texto principal */
@@ -1071,8 +1080,6 @@ header {
   .contenedor_principal .contenedor_principal-texto .contenido_principal-texto {
     font-size: 15px;
     margin-top: 0px;
-    margin-right: 5px;
-    margin-left: 5px;
     padding-right: 4px;
     text-align: start;
   }
@@ -1091,6 +1098,59 @@ header {
     margin-left: 0px;
     margin-right: 0px;
   }
+  /* ==== Contenedor principal de filtro categorias y productos */
+  .contenedor_principal-filtroCategorias-listaProductos {
+    display: grid;
+    min-width: 320px;
+    overflow: hidden;
+    gap: 10px;
+    /* Indicar cuantas columnas tendra */
+    grid-template-columns: 1fr;
+    /* Indicar cuantas filas tendra */
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "titulo_categoria" "filtro_categorias" "contenedor_cards_productos";
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .titulo_categoria {
+    width: auto;
+    min-width: 310px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .titulo_categoria h2 {
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_filtroCategorias {
+    width: 97%;
+    min-width: 315px;
+    margin-right: 2px;
+    margin-left: 0px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos {
+    width: auto;
+    min-width: 315px;
+    max-width: 590px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto {
+    margin-right: 40px;
+    min-width: 320px;
+    background-color: #0095ff;
+    /* contenedor de boton y texto del card */
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen {
+    min-width: 318px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen img {
+    min-width: 318px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton {
+    margin-right: 40px;
+    min-width: 320px;
+  }
+  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton h2 {
+    width: auto;
+    margin-right: 40px;
+  }
   /* Footer */
   .contenedor_footer {
     width: auto;
@@ -1107,13 +1167,8 @@ header {
   /* === Pagina descuentos ==== */
   .contenedor_principal-descuentos-fechas {
     display: grid;
-    min-width: 300px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    margin: 3px;
-    margin-top: 75px;
-    margin-right: 6px;
-    margin-left: 5px;
+    min-width: 320px;
+    overflow: hidden;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas: "titulo_descuentos" "card_img_descuento" "texto_descuentos" "contenedor_descuentos" "titulo_fechas" "contenedor_fechas";
@@ -1124,19 +1179,20 @@ header {
   .contenedor_principal-descuentos-fechas .titulo_descuentos {
     min-width: 300px;
     max-width: 590px;
-    margin-right: 6px;
   }
   .contenedor_principal-descuentos-fechas .titulo_descuentos h2 {
     width: 99%;
     font-size: 40px;
   }
   .contenedor_principal-descuentos-fechas .card_imagen_descuento {
+    margin-left: 3px;
+    min-width: 310px;
     width: 98%;
     max-width: 590px;
   }
   .contenedor_principal-descuentos-fechas .card_imagen_descuento img {
     width: 100%;
-    min-width: 320px;
+    min-width: 310px;
     max-width: 590px;
     min-height: 200px;
   }
@@ -1151,21 +1207,21 @@ header {
   }
   .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos {
     width: 100%;
-    min-width: 310px;
+    min-width: 306px;
   }
   .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento {
     width: 98%;
-    min-width: 320px;
-    margin-left: 0px;
+    min-width: 306px;
     background-color: #0095ff;
+    margin-right: 12px;
   }
   .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .cobertura_img_card {
     width: 100%;
-    min-width: 320px;
+    min-width: 306px;
   }
   .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .texto_card_descuento {
     width: 100%;
-    min-width: 320px;
+    min-width: 306px;
     margin-right: 24px;
   }
   .contenedor_principal-descuentos-fechas .contenedor_cards_descuentos .card_descuento .texto_card_descuento p {
@@ -1237,9 +1293,7 @@ header {
     display: grid;
     min-width: 320px;
     overflow: hidden;
-    margin-top: 60px;
     margin-right: 5px;
-    margin-left: 5px;
     grid-template-columns: 1fr;
     /* Indicar cuantas filas tendra */
     grid-template-rows: auto auto auto;
@@ -1284,61 +1338,6 @@ header {
   .contenedor_principal-contactanos .contenedor_formulario button {
     margin-left: 3px;
   }
-  /* ==== Contenedor principal de filtro categorias y productos */
-  .contenedor_principal-filtroCategorias-listaProductos {
-    display: grid;
-    margin-top: 50px;
-    min-width: 320px;
-    margin-left: 11px;
-    overflow: hidden;
-    gap: 10px;
-    /* Indicar cuantas columnas tendra */
-    grid-template-columns: 1fr;
-    /* Indicar cuantas filas tendra */
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "titulo_categoria" "filtro_categorias" "contenedor_cards_productos";
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .titulo_categoria {
-    width: auto;
-    min-width: 310px;
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .titulo_categoria h2 {
-    width: 100%;
-    font-size: 40px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .contenedor_filtroCategorias {
-    width: 97%;
-    min-width: 320px;
-    margin-right: 2px;
-    margin-left: 0px;
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos {
-    width: auto;
-    min-width: 320px;
-    max-width: 590px;
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto {
-    margin-right: 40px;
-    min-width: 320px;
-    background-color: #0095ff;
-    /* contenedor de boton y texto del card */
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen {
-    min-width: 318px;
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto_imagen img {
-    min-width: 318px;
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton {
-    margin-right: 40px;
-    min-width: 320px;
-  }
-  .contenedor_principal-filtroCategorias-listaProductos .contenedor_listaProductos .card_producto .card_producto-texto_boton h2 {
-    width: auto;
-    margin-right: 40px;
-  }
 }
 
 /* Smartphone pagina carrito */
@@ -1347,12 +1346,9 @@ header {
   .carrito-contenedor_principal {
     display: grid;
     height: auto;
-    min-width: 300px;
+    min-width: 320px;
     overflow-y: hidden;
     overflow-x: hidden;
-    margin: 3px;
-    margin-right: 8px;
-    margin-left: 8px;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: "texto_carrito" "contenedor_productos" "contenedor_precio_total";

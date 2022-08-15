@@ -9,7 +9,6 @@
 .contenedor_principal_quienes-somos {
     @include sizes($width-estandar, $height-estandar);
     display: grid;
-    margin-top: 80px;
     gap: 10px;
     background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
     /* Indicar cuantas columnas tendra */

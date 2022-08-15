@@ -26,7 +26,6 @@
     background-color: map-get($map: $paleta-colores, $key: 'colorPrincipal');
     @include sizes($width-estandar, $height-estandar);
     display: grid;
-    margin-top: 100px;
     gap: 10px;
     /* Indicar cuantas columnas tendra */
     grid-template-columns: repeat(3, auto);

@@ -15,7 +15,7 @@
 /* contenedor principal */
 .carrito-contenedor_principal {
     @include sizes($width-estandar, $height-estandar);
-    @include contenedorGrid(grid, 80px, 40px);
+    @include contenedorGrid(grid, 8px, 10px);
     background-color: map-get($map: $paleta-colores, $key: 'segundoColorPrincipal');
     /* Indicar cuantas columnas tendra */
     grid-template-columns: repeat(3, 1fr);
